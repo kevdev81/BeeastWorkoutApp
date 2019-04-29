@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using workoutApp.Interfaces;
+using workoutApp.Services;
 
 namespace my_new_app
 {
@@ -27,6 +29,10 @@ namespace my_new_app
             {
                 configuration.RootPath = "ClientApp/build";
             });
+
+            services.AddSingleton<IConfiguration>(Configuration);
+            services.AddSingleton<IUserService, UserService>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
