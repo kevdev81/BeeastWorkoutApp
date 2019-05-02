@@ -43,7 +43,7 @@ namespace workoutApp.Controllers
 //                    Guid token = _userService.AddToken(id);
 //                    _emailService.ConfirmEmail(model.Email, token);
                     
-                    result = Ok200(response);
+                    result = Ok201(response);
                 }
             }
             catch (Exception ex)

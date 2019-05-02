@@ -17,7 +17,7 @@ namespace workoutApp.Controllers.Temp
             Logger = logger;
         }
 
-        public OkObjectResult Ok200(BaseResponse response)
+        public OkObjectResult Ok201(BaseResponse response)
         {
             return base.Ok(response);
         }

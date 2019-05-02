@@ -1,16 +1,33 @@
-using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Net;
 using workoutApp.Controllers;
 using workoutApp.Interfaces;
 using workoutApp.Models;
-using workoutApp.Services;
+using workoutApp.Models.Responses;
 using Xunit;
 
 namespace workoutAppTest
 {
     public class RegisterControllerTest
     {
+        private readonly UserApiController _controller;
+        private readonly IUserService _service;
+
+        [Fact]
+        public void Insert_CorrectRegistrationInfo()
+        {
+            UserInsertRequestModel correctRegistrationInfo = new UserInsertRequestModel()
+            {
+                Email = "xUnitTester@gmail.com",
+                Password = "Password1!",
+                PasswordConfirm = "Password1!"
+            };
+            var result = _controller.Insert(correctRegistrationInfo);
+            Console.WriteLine(result);
+
+            Console.WriteLine(Assert.IsType<ItemResponse<int>>(result));
+        }
+
+        /*
         UserApiController _controller;
         IUserService _service;
 
@@ -30,7 +47,6 @@ namespace workoutAppTest
             Assert.IsType<OkObjectResult>(okResult.Result);
         }
 
-
         [Fact]
         public void UserRegisterTests()
         {
@@ -42,5 +58,6 @@ namespace workoutAppTest
 
             Assert.Equal(HttpStatusCode.OK, result.StatusCode);
         }
+        */
     }
 }
