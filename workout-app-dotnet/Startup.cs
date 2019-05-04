@@ -31,7 +31,7 @@ namespace my_new_app
             });
 
             services.AddSingleton<IConfiguration>(Configuration);
-            services.AddSingleton<IUserService, UserService>();
+            services.AddSingleton<workoutApp.Interfaces.LoginRegister.IUserService, workoutApp.Services.LoginRegister.UserService>();
 
         }
 

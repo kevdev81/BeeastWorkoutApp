@@ -2,7 +2,7 @@ import React from "react";
 import { Button } from "reactstrap";
 import { handlePostRegisterUser } from "./registerService";
 
-class Register extends React.Component {
+class RegisterWithPassword extends React.Component {
   state = {
     email: "",
     password: "",
@@ -93,4 +93,4 @@ class Register extends React.Component {
   }
 }
 
-export default Register;
+export default RegisterWithPassword;

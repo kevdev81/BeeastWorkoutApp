@@ -1,17 +1,17 @@
-import React, { Component, Suspense, lazy } from "react";
+import React, { Suspense, lazy } from "react";
 import { Route, Switch, withRouter } from "react-router-dom";
 import PageLoader from "./components/pageLoader/PageLoader";
 
-const Login = lazy(() => import("./components/login/Login"));
-const Register = lazy(() => import("./components/register/Register"));
+const Login = lazy(() => import("./components/login/LoginWithEmail"));
+const Register = lazy(() => import("./components/register/RegisterWithEmail"));
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      user: ""
-    };
-  }
+class App extends React.Component {
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     user: ""
+  //   };
+  // }
 
   render() {
     return (

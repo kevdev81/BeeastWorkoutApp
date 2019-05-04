@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace workoutApp.Models
+namespace workoutApp.Models.LoginRegister
 {
     public class UserUpdateRequestModel
     {

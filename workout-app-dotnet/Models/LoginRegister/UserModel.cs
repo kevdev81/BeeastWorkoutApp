@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace workoutApp.Models
+namespace workoutApp.Models.LoginRegister
 {
     public class UserModel
     {

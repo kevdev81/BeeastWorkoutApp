@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "reactstrap";
 
-class Login extends React.Component {
+class LoginWithPassword extends React.Component {
   state = {
     email: "",
     password: ""
@@ -65,4 +65,4 @@ class Login extends React.Component {
   }
 }
 
-export default Login;
+export default LoginWithPassword;
