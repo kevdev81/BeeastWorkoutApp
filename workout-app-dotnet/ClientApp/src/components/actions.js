@@ -1,5 +1,5 @@
-export function setCurrentUser(currentUserId) {
+export const setCurrentUser = currentUserId => {
   return draft => {
     draft.currentUserId = currentUserId;
   };
-}
+};

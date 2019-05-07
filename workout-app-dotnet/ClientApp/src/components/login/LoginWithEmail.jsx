@@ -63,7 +63,7 @@ class LoginWithEmail extends React.Component {
                     color="info"
                     type="button"
                     block
-                    onSubmit={this.loginUser}
+                    onClick={this.loginUser}
                   >
                     Submit
                   </Button>
