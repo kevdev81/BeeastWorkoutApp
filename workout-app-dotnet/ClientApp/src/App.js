@@ -2,8 +2,8 @@ import React, { Suspense, lazy } from "react";
 import { Route, Switch, withRouter } from "react-router-dom";
 import PageLoader from "./components/pageLoader/PageLoader";
 
-const Login = lazy(() => import("./components/login/LoginWithEmail"));
-const Register = lazy(() => import("./components/register/RegisterWithEmail"));
+const Login = lazy(() => import("./components/login/Login"));
+const Register = lazy(() => import("./components/register/Register"));
 
 class App extends React.Component {
   // constructor(props) {

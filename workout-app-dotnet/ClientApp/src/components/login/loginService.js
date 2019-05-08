@@ -3,7 +3,7 @@ import axios from "axios";
 export function handleLoginUser(loginEmail) {
   const config = {
     method: "GET",
-    url: `https://localhost:44399/api/user/login/${loginEmail}`,
+    url: `https://localhost:44350/api/user/login/${loginEmail}`,
     crossdomain: true,
     headers: {
       "Conent-Type": "application/json"

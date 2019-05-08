@@ -14,7 +14,7 @@ namespace workoutApp.Services.LoginRegister
 
         public LoginRequest GetByEmail(string email)
         {
-            LoginRequest loginRequest = new LoginRequest();
+            LoginRequest currentUser = new LoginRequest();
 
             using (SqlConnection con = new SqlConnection(connString))
             {
@@ -28,10 +28,10 @@ namespace workoutApp.Services.LoginRegister
 
                 while (reader.Read())
                 {
-                    loginRequest.Id = (int)reader["Id"];
+                    currentUser.Id = (int)reader["Id"];
                 };
             }
-            return loginRequest;
+            return currentUser;
         }
 
         public int Insert(UserInsertRequestModel model)
