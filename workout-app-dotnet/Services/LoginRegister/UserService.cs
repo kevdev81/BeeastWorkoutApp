@@ -12,32 +12,62 @@ namespace workoutApp.Services.LoginRegister
     {
         private static string connString = "Server=.\\SQLEXPRESS;Database=WorkoutApp;Trusted_Connection=True;";
         
-        public LoginRequest GetByEmail(string email)
+        public int LoginCheck(LoginRequest req)
         {
-            LoginRequest currentUser = new LoginRequest();
-
+            int id = 0;
             using (SqlConnection con = new SqlConnection(connString))
             {
                 SqlCommand cmd = new SqlCommand("dbo.User_SelectByEmail", con);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@Email", email);
+                cmd.Parameters.AddWithValue("@Email", req.Email);
 
                 con.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
 
+                int currentUserId = 0;
+                string hashedPassword = null;
                 while (reader.Read())
                 {
-                    currentUser.Id = (int)reader["Id"];
+                    hashedPassword = (string)reader["Password"];
+                    currentUserId = (int)reader["Id"];
                 };
+
+                bool validPassword = BCrypt.Net.BCrypt.Verify(req.Password, hashedPassword);
+
+                if (validPassword)
+                {
+                    id = currentUserId;
+                }
             }
-            return currentUser;
+            return id;
         }
+        //public LoginRequest GetByEmail(string email)
+        //{
+        //    LoginRequest currentUser = new LoginRequest();
+
+        //    using (SqlConnection con = new SqlConnection(connString))
+        //    {
+        //        SqlCommand cmd = new SqlCommand("dbo.User_SelectByEmail", con);
+        //        cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+        //        cmd.Parameters.AddWithValue("@Email", email);
+
+        //        con.Open();
+        //        SqlDataReader reader = cmd.ExecuteReader();
+
+        //        while (reader.Read())
+        //        {
+        //            currentUser.Id = (int)reader["Id"];
+        //        };
+        //    }
+        //    return currentUser;
+        //}
 
         public int Insert(UserInsertRequestModel model)
         {
             int id = 0;
-            string hashedPassword = SecurePasswordHasher.Hash(model.Password);
+            string hashedPassword = BCrypt.Net.BCrypt.HashPassword(model.Password);
             using (SqlConnection con = new SqlConnection(connString))
             {
                 SqlCommand cmd = new SqlCommand("dbo.User_Insert", con);

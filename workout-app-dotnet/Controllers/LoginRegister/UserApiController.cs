@@ -22,25 +22,25 @@ namespace workoutApp.Controllers.LoginRegister
             _userService = userService;
         }
 
-        [HttpGet("login/{email}")]
-        public ActionResult<ItemResponse<LoginRequest>> Login(string email)
+        [HttpPost("login")]
+        public ActionResult<ItemResponse<int>> Login(LoginRequest req)
         {
-            ItemResponse<LoginRequest> response = null;
+            ItemResponse<int> response = null;
             ActionResult result = null;
 
             try
             {
-                LoginRequest loginRequest = _userService.GetByEmail(email);
+                int currentUserId = _userService.LoginCheck(req);
 
-                if (loginRequest == null)
+                if (currentUserId > 0)
                 {
-                    result = NotFound404(new ErrorResponse("Email not found."));
+                    response = new ItemResponse<int>();
+                    response.Item = currentUserId;
+                    result = Ok200(response);
                 }
                 else
                 {
-                    response = new ItemResponse<LoginRequest>();
-                    response.Item = loginRequest;
-                    result = Ok200(response);
+                    result = NotFound404(new ErrorResponse("User information did not match."));
                 }
             }
             catch (Exception ex)
@@ -50,6 +50,35 @@ namespace workoutApp.Controllers.LoginRegister
             }
             return result;
         }
+
+        //[HttpGet("login/{email}")]
+        //public ActionResult<ItemResponse<LoginRequest>> Login(string email)
+        //{
+        //    ItemResponse<LoginRequest> response = null;
+        //    ActionResult result = null;
+
+        //    try
+        //    {
+        //        LoginRequest loginRequest = _userService.GetByEmail(email);
+
+        //        if (loginRequest == null)
+        //        {
+        //            result = NotFound404(new ErrorResponse("Email not found."));
+        //        }
+        //        else
+        //        {
+        //            response = new ItemResponse<LoginRequest>();
+        //            response.Item = loginRequest;
+        //            result = Ok200(response);
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Logger.LogError(ex.ToString());
+        //        result = StatusCode(500, new ErrorResponse(ex.Message.ToString()));
+        //    }
+        //    return result;
+        //}
 
         [HttpPost("register")]
         [AllowAnonymous]

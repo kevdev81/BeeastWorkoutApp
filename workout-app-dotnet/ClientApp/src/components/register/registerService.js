@@ -4,7 +4,7 @@ export const handlePostRegisterUser = formData => {
   const config = {
     method: "POST",
     data: JSON.stringify(formData),
-    url: `https://localhost:44399/api/user/register`,
+    url: `https://localhost:44350/api/user/register`,
     crossdomain: true,
     headers: {
       "Content-Type": "application/json"

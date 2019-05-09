@@ -4,9 +4,11 @@ export function reducer(state, action) {
       currentUserId: 0
     };
   }
+
   if (action.type === "SET_CURRENT_USER_ID") {
     return {
-      currentUserId: state.currentUserId
+      ...state,
+      currentUserId: action.currentUserId
     };
   }
 }

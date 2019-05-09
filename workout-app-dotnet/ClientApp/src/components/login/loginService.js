@@ -1,19 +1,20 @@
 import axios from "axios";
 
-export function handleLoginUser(loginEmail) {
+export function handleLoginUser(formData) {
   const config = {
-    method: "GET",
-    url: `https://localhost:44350/api/user/login/${loginEmail}`,
+    method: "POST",
+    data: JSON.stringify(formData),
+    url: `https://localhost:44350/api/user/login`,
     crossdomain: true,
     headers: {
       "Conent-Type": "application/json"
     }
   };
   return axios(config)
-    .then(data => {
-      return data.data.item;
-    })
-    .catch(data => {
-      return data;
+    .then(res => console.log(res))
+    .catch(error => {
+      console.log(error);
     });
 }
+
+//localStore.setItem('token', response.data.token);

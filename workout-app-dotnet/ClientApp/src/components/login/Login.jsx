@@ -1,11 +1,11 @@
 import React from "react";
 import { handleLoginUser } from "./loginService";
-import { Button } from "reactstrap";
-import { setCurrentUserId } from "../actions";
+import LoginForm from "./LoginForm";
 
 class Login extends React.Component {
   state = {
-    email: ""
+    email: "",
+    password: ""
   };
 
   handleInputChange = e => {
@@ -18,63 +18,33 @@ class Login extends React.Component {
     });
   };
 
-  loginUser = e => {
-    e.preventDefault();
-    if (this.state.email) {
-      handleLoginUser(this.state.email)
-        .then(data => this.onGetSuccess(data.id))
-        .catch(error => this.onGetError(error));
-    }
+  loginUser = () => {
+    const formData = {
+      email: this.state.email,
+      password: this.state.password
+    };
+    handleLoginUser(formData)
+      .then(data => this.onGetSuccess(data))
+      .catch(error => this.onGetError(error));
   };
   onGetSuccess = id => {
-    setCurrentUserId(id);
-    console.log("You have successully logged in.");
+    console.log(id);
   };
   onGetError = error => {
     console.log(error);
   };
 
   render() {
+    const { email, password } = this.state;
+    const { handleInputChange, loginUser } = this;
     return (
-      <div className="card">
-        <h1>Login</h1>
-        <form>
-          <div className="card-body">
-            <div>
-              <h1>{this.props.currentUserId}</h1>
-              <label>Email:</label>
-              <input
-                className="form-control"
-                placeholder="Email"
-                name="email"
-                type="email"
-                value={this.state.email}
-                onChange={this.handleInputChange}
-              />
-            </div>
-            <div>
-              <a
-                href="https://localhost:44350/register"
-              >
-                If you don't have an account, please click here.
-              </a>
-            </div>
-            <div>
-              <span>
-                <div>
-                  <Button
-                    color="info"
-                    type="button"
-                    block
-                    onClick={this.loginUser}
-                  >
-                    Submit
-                  </Button>
-                </div>
-              </span>
-            </div>
-          </div>
-        </form>
+      <div>
+        <LoginForm
+          email={email}
+          password={password}
+          handleInputChange={handleInputChange}
+          loginUser={loginUser}
+        />
       </div>
     );
   }
