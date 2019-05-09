@@ -11,7 +11,7 @@ namespace workoutApp.Services.LoginRegister
     public class UserService : IUserService
     {
         private static string connString = "Server=.\\SQLEXPRESS;Database=WorkoutApp;Trusted_Connection=True;";
-
+        
         public LoginRequest GetByEmail(string email)
         {
             LoginRequest currentUser = new LoginRequest();
