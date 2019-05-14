@@ -7,11 +7,11 @@ export function handleLoginUser(formData) {
     url: `https://localhost:44350/api/user/login`,
     crossdomain: true,
     headers: {
-      "Conent-Type": "application/json"
+      "Content-Type": "application/json"
     }
   };
   return axios(config)
-    .then(res => console.log(res))
+    .then(res => res.data)
     .catch(error => {
       console.log(error);
     });

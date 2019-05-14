@@ -24,14 +24,14 @@ class Login extends React.Component {
       password: this.state.password
     };
     handleLoginUser(formData)
-      .then(data => this.onGetSuccess(data))
-      .catch(error => this.onGetError(error));
+      .then(data => this.onGetSuccess(data.item))
+      .catch(this.onGetError);
   };
   onGetSuccess = id => {
-    console.log(id);
+    localStorage.setItem("currentUser", id);
   };
-  onGetError = error => {
-    console.log(error);
+  onGetError = () => {
+    alert("Incorrect Email or Password.");
   };
 
   render() {
