@@ -3,38 +3,43 @@ import HomePage from "./HomePage";
 import StrengthProfile from "../strengthProfile/StrengthProfile";
 import { getUserById } from "./homeService";
 
+const currentUserId = localStorage.getItem("currentUser");
+
 class Home extends React.Component {
   state = {
     hasProfile: true
   };
 
-  componentDidMount(){
-    let currentUserId = localStorage.getItem("currentUser");
-    this.getUserById(currentUserId);
-    let
-  }
-
-  // render() {
-  // let homePage;
-  // if (this.state.hasProfile) {
-  //   homePage = <HomePage />;
-  // } else {
-  //   homePage = <StrengthProfile />;
+  // componentDidMount() {
+  //   getUserById(currentUserId)
+  //     .then(this.onGetUserSuccess)
+  //     .catch(this.onGetUserError);
   // }
-  renderSwitch(param) {
-    switch (param) {
-      case true:
-        return <HomePage />;
-      case false:
-        return <StrengthProfile />;
-    }
-  }
+  // onGetUserSuccess = hasProfile => {
+
+  // }
+
+  // // render() {
+  // // let homePage;
+  // // if (this.state.hasProfile) {
+  // //   homePage = <HomePage />;
+  // // } else {
+  // //   homePage = <StrengthProfile />;
+  // // }
+  // renderSwitch(param) {
+  //   switch (param) {
+  //     case true:
+  //       return <HomePage />;
+  //     case false:
+  //       return <StrengthProfile />;
+  //   }
+  // }
   render() {
     return (
       <div>
         <h1>Hello</h1>
         {/* {homePage} */}
-        {this.renderSwitch(this.state.hasProfile)}
+        {/* {this.renderSwitch(this.state.hasProfile)} */}
       </div>
     );
   }

@@ -4,7 +4,10 @@ import PageLoader from "./components/pageLoader/PageLoader";
 
 const Login = lazy(() => import("./components/login/Login"));
 const Register = lazy(() => import("./components/register/Register"));
-const Home = lazy(() => import("./components/home/Home"))
+const Home = lazy(() => import("./components/home/Home"));
+const StrengthProfile = lazy(() =>
+  import("./components/strengthProfile/StrengthProfile")
+);
 
 class App extends React.Component {
   // constructor(props) {
@@ -25,6 +28,11 @@ class App extends React.Component {
             render={props => <Register {...props} />}
           />
           <Route path="/home" exact render={props => <Home {...props} />} />
+          <Route
+            path="/strengthProfile"
+            exact
+            render={props => <StrengthProfile {...props} />}
+          />
         </Switch>
       </Suspense>
     );
