@@ -1,10 +1,40 @@
 import React from "react";
+import HomePage from "./HomePage";
+import StrengthProfile from "../strengthProfile/StrengthProfile";
+import { getUserById } from "./homeService";
 
 class Home extends React.Component {
+  state = {
+    hasProfile: true
+  };
+
+  componentDidMount(){
+    let currentUserId = localStorage.getItem("currentUser");
+    this.getUserById(currentUserId);
+    let
+  }
+
+  // render() {
+  // let homePage;
+  // if (this.state.hasProfile) {
+  //   homePage = <HomePage />;
+  // } else {
+  //   homePage = <StrengthProfile />;
+  // }
+  renderSwitch(param) {
+    switch (param) {
+      case true:
+        return <HomePage />;
+      case false:
+        return <StrengthProfile />;
+    }
+  }
   render() {
     return (
       <div>
-        <h1>This is the Home Page.</h1>
+        <h1>Hello</h1>
+        {/* {homePage} */}
+        {this.renderSwitch(this.state.hasProfile)}
       </div>
     );
   }

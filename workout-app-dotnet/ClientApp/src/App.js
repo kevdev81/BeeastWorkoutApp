@@ -4,6 +4,7 @@ import PageLoader from "./components/pageLoader/PageLoader";
 
 const Login = lazy(() => import("./components/login/Login"));
 const Register = lazy(() => import("./components/register/Register"));
+const Home = lazy(() => import("./components/home/Home"))
 
 class App extends React.Component {
   // constructor(props) {
@@ -23,6 +24,7 @@ class App extends React.Component {
             exact
             render={props => <Register {...props} />}
           />
+          <Route path="/home" exact render={props => <Home {...props} />} />
         </Switch>
       </Suspense>
     );

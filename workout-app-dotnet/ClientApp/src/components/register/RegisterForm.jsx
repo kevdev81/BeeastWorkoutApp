@@ -2,7 +2,6 @@ import React from "react";
 import { Card, CardBody, Button } from "reactstrap";
 
 class RegisterForm extends React.Component {
-
   render() {
     return (
       <Card>
@@ -16,6 +15,28 @@ class RegisterForm extends React.Component {
                 name="email"
                 type="email"
                 value={this.props.email}
+                onChange={this.props.handleInputChange}
+              />
+            </div>
+            <div>
+              <label>First Name:</label>
+              <input
+                className="form-control"
+                placeholder="First Name"
+                name="firstName"
+                type="text"
+                value={this.props.firstName}
+                onChange={this.props.handleInputChange}
+              />
+            </div>
+            <div>
+              <label>Last Name:</label>
+              <input
+                className="form-control"
+                placeholder="Last Name"
+                name="lastName"
+                type="text"
+                value={this.props.lastName}
                 onChange={this.props.handleInputChange}
               />
             </div>
@@ -43,7 +64,11 @@ class RegisterForm extends React.Component {
             </div>
             <div>
               <span>
-                <Button type="button" color="info" onClick={this.props.registerUser}>
+                <Button
+                  type="button"
+                  color="info"
+                  onClick={this.props.registerUser}
+                >
                   Submit
                 </Button>
                 <Button

@@ -23,19 +23,19 @@ namespace workoutApp.Controllers.LoginRegister
         }
 
         [HttpPost("login")]
-        public ActionResult<ItemResponse<int>> Login(LoginRequest req)
+        public ActionResult<ItemResponse<CurrentUser>> Login(LoginRequest req)
         {
-            ItemResponse<int> response = null;
+            ItemResponse<CurrentUser> response = null;
             ActionResult result = null;
 
             try
             {
-                int currentUserId = _userService.LoginCheck(req);
+                CurrentUser currentUser = _userService.LoginCheck(req);
 
-                if (currentUserId > 0)
+                if (currentUser.Id > 0)
                 {
-                    response = new ItemResponse<int>();
-                    response.Item = currentUserId;
+                    response = new ItemResponse<CurrentUser>();
+                    response.Item = currentUser;
                     result = Ok200(response);
                 }
                 else
@@ -50,35 +50,6 @@ namespace workoutApp.Controllers.LoginRegister
             }
             return result;
         }
-
-        //[HttpGet("login/{email}")]
-        //public ActionResult<ItemResponse<LoginRequest>> Login(string email)
-        //{
-        //    ItemResponse<LoginRequest> response = null;
-        //    ActionResult result = null;
-
-        //    try
-        //    {
-        //        LoginRequest loginRequest = _userService.GetByEmail(email);
-
-        //        if (loginRequest == null)
-        //        {
-        //            result = NotFound404(new ErrorResponse("Email not found."));
-        //        }
-        //        else
-        //        {
-        //            response = new ItemResponse<LoginRequest>();
-        //            response.Item = loginRequest;
-        //            result = Ok200(response);
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        Logger.LogError(ex.ToString());
-        //        result = StatusCode(500, new ErrorResponse(ex.Message.ToString()));
-        //    }
-        //    return result;
-        //}
 
         [HttpPost("register")]
         [AllowAnonymous]
@@ -95,9 +66,6 @@ namespace workoutApp.Controllers.LoginRegister
                 {
                     response = new ItemResponse<int>();
                     response.Item = id;
-
-                    //                    Guid token = _userService.AddToken(id);
-                    //                    _emailService.ConfirmEmail(model.Email, token);
 
                     result = Created201(response);
                 }
@@ -116,35 +84,5 @@ namespace workoutApp.Controllers.LoginRegister
             }
             return result;
         }
-
-        /*
-                [HttpPost("login")]
-                public ActionResult<ItemResponse<int>> Insert(UserInsertRequestModel model)
-                {
-                    ItemResponse<int> response = null;
-                    ActionResult result = null;
-
-                    try
-                    {
-                        int id = _userService.Insert(model);
-                        if (id > 0)
-                        {
-                            response = new ItemResponse<int>();
-                            response.Item = id;
-                            result = Ok201(response);
-                        }
-                        else
-                        {
-                            result = NotFound404
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        Logger.LogError(ex.ToString());
-                        result = StatusCode(500, new ErrorResponse(ex.Message.ToString()));
-                    }
-                    return result;
-                }
-        */
     }
 }

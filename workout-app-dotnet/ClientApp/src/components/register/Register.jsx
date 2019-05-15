@@ -6,6 +6,8 @@ import history from "../../history";
 class Register extends React.Component {
   state = {
     email: "",
+    firstName: "",
+    lastName: "",
     password: "",
     passwordConfirm: ""
   };
@@ -24,6 +26,8 @@ class Register extends React.Component {
   registerUser = () => {
     const formData = {
       email: this.state.email,
+      firstName: this.state.firstName,
+      lastName: this.state.lastName,
       password: this.state.password,
       passwordConfirm: this.state.passwordConfirm
     };
@@ -44,7 +48,7 @@ class Register extends React.Component {
     history.replace("/");
   };
   render() {
-    const { email, password, passwordConfirm } = this.state;
+    const { email, firstName, lastName, password, passwordConfirm } = this.state;
     const { handleInputChange, registerUser, goToLoginPage } = this;
     return (
       <div>
@@ -53,6 +57,8 @@ class Register extends React.Component {
           registerUser={registerUser}
           goToLoginPage={goToLoginPage}
           email={email}
+          firstName={firstName}
+          lastName={lastName}
           password={password}
           passwordConfirm={passwordConfirm}
         />

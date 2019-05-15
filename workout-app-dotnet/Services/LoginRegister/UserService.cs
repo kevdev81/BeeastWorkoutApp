@@ -3,7 +3,6 @@ using System.Data.SqlClient;
 using workoutApp.Interfaces.LoginRegister;
 using workoutApp.Models.LoginRegister;
 using workoutApp.Models.LoginRegister.LoginRequest;
-using workoutApp.Services.Helpers;
 
 namespace workoutApp.Services.LoginRegister
 
@@ -11,58 +10,44 @@ namespace workoutApp.Services.LoginRegister
     public class UserService : IUserService
     {
         private static string connString = "Server=.\\SQLEXPRESS;Database=WorkoutApp;Trusted_Connection=True;";
-        
-        public int LoginCheck(LoginRequest req)
+
+        public CurrentUser LoginCheck(LoginRequest req)
         {
-            int id = 0;
+            CurrentUser currentUser = new CurrentUser();
+            {
+                LoginUserModel loginUserModel = Get(req.Email);
+                bool validPassword = BCrypt.Net.BCrypt.Verify(req.Password, loginUserModel.Password);
+
+                if (validPassword)
+                {
+                    currentUser.Id = loginUserModel.Id;
+                    currentUser.HasProfile = loginUserModel.HasProfile;
+                }
+            }
+            return currentUser;
+        }
+
+        public LoginUserModel Get(string email)
+        {
+            LoginUserModel userInfo = new LoginUserModel();
             using (SqlConnection con = new SqlConnection(connString))
             {
                 SqlCommand cmd = new SqlCommand("dbo.User_SelectByEmail", con);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
-
-                cmd.Parameters.AddWithValue("@Email", req.Email);
+                cmd.Parameters.AddWithValue("@Email", email);
 
                 con.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
-
-                int currentUserId = 0;
-                string hashedPassword = null;
                 while (reader.Read())
                 {
-                    hashedPassword = (string)reader["Password"];
-                    currentUserId = (int)reader["Id"];
-                };
-
-                bool validPassword = BCrypt.Net.BCrypt.Verify(req.Password, hashedPassword);
-
-                if (validPassword)
-                {
-                    id = currentUserId;
+                    userInfo.Email = email;
+                    userInfo.Id = (int)reader["Id"];
+                    userInfo.Password = (string)reader["Password"];
+                    userInfo.HasProfile = (bool)reader["HasProfile"];
                 }
             }
-            return id;
+            return userInfo;
         }
-        //public LoginRequest GetByEmail(string email)
-        //{
-        //    LoginRequest currentUser = new LoginRequest();
-
-        //    using (SqlConnection con = new SqlConnection(connString))
-        //    {
-        //        SqlCommand cmd = new SqlCommand("dbo.User_SelectByEmail", con);
-        //        cmd.CommandType = System.Data.CommandType.StoredProcedure;
-
-        //        cmd.Parameters.AddWithValue("@Email", email);
-
-        //        con.Open();
-        //        SqlDataReader reader = cmd.ExecuteReader();
-
-        //        while (reader.Read())
-        //        {
-        //            currentUser.Id = (int)reader["Id"];
-        //        };
-        //    }
-        //    return currentUser;
-        //}
 
         public int Insert(UserInsertRequestModel model)
         {
@@ -77,8 +62,9 @@ namespace workoutApp.Services.LoginRegister
                 outputParam.Direction = ParameterDirection.Output;
 
                 cmd.Parameters.AddWithValue("@Email", model.Email);
+                cmd.Parameters.AddWithValue("@FirstName", model.FirstName);
+                cmd.Parameters.AddWithValue("@LastName", model.LastName);
                 cmd.Parameters.AddWithValue("@Password", hashedPassword);
-                cmd.Parameters.AddWithValue("@IsConfirmed", model.IsConfirmed);
 
                 con.Open();
                 cmd.ExecuteNonQuery();
@@ -87,21 +73,5 @@ namespace workoutApp.Services.LoginRegister
             }
             return id;
         }
-
-        /*
-                public Guid AddToken(int userId)
-                {
-                    Guid generatedToken = Guid.NewGuid();
-                    using (SqlConnection con = new SqlConnection(connString))
-                    {
-                        SqlCommand cmd = new SqlCommand("dbo.UserTokens_Insert", con);
-                        cmd.CommandType = System.Data.CommandType.StoredProcedure;
-
-                        cmd.Parameters.AddWithValue("@UserId", userId);
-                        cmd.Parameters.AddWithValue("@Token", generatedToken);
-                        cmd.Parameters.AddWithValue("@TokenTypeId", (int)TokenType.Register);
-                    }
-                }
-        */
     }
 }

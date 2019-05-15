@@ -5,7 +5,9 @@ namespace workoutApp.Interfaces.LoginRegister
 {
     public interface IUserService
     {
-        int LoginCheck(LoginRequest req);
+        CurrentUser LoginCheck(LoginRequest req);
+
+        LoginUserModel Get(string email);
 
         //LoginRequest GetByEmail(string email);
         int Insert(UserInsertRequestModel model);
