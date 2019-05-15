@@ -16,5 +16,3 @@ export function handleLoginUser(formData) {
       console.log(error);
     });
 }
-
-//localStore.setItem('token', response.data.token);
