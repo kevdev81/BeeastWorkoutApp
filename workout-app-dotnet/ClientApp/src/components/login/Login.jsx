@@ -28,11 +28,13 @@ class Login extends React.Component {
       .catch(this.onGetError);
   };
   onGetSuccess = data => {
+    console.log(data);
     localStorage.setItem("currentUser", data.id);
     if (data.hasProfile) {
       this.props.history.push("/home");
+    } else {
+      this.props.history.push("/strengthProfile");
     }
-    this.props.history.push("/strengthProfile");
   };
   onGetError = () => {
     alert("Incorrect Email or Password.");
