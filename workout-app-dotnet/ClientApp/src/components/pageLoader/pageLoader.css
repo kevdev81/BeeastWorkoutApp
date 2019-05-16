@@ -1,0 +1,24 @@
+.pageLoaderWrapper {
+  padding: 20px;
+  border: solid black 15px;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+}
+
+.pageLoaderContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(auto-fill, 75px);
+}
+
+.pageLoader {
+  justify-items: center;
+  padding: 5%;
+  border-radius: 2%;
+  height: 100%;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  grid-row-end: 3;
+}

@@ -1,13 +1,33 @@
 import React from "react";
+import "./pageLoader.css";
 
-class PageLoader extends React.Component {
-  render() {
-    return (
-      <div>
-        <h1>Page is Loading..</h1>
+const PageLoader = () => {
+  return (
+    <div className="pageLoaderWrapper">
+      <div className="pageLoaderContainer">
+        <div className="pageLoader">
+          <img src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/afb8cb36197347.5713616457ee5.gif" />
+        </div>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 export default PageLoader;
+
+// import React from "react";
+// import Spinner from "react-bootstrap/Spinner.js";
+
+// class PageLoader extends React.Component {
+//   render() {
+//     return (
+//       <div>
+//         <Spinner animation="border" role="status">
+//           <span className="sr-only">Loading...</span>
+//         </Spinner>
+//       </div>
+//     );
+//   }
+// }
+
+// export default PageLoader;

@@ -51,17 +51,15 @@ class StrengthProfile extends React.Component {
     } = this.state;
     const { handleInputChange, submitStrengthProfile } = this;
     return (
-      <div>
-        <StrengthProfileForm
-          weight={weight}
-          benchMax={benchMax}
-          deadliftMax={deadliftMax}
-          squatMax={squatMax}
-          shoulderPressMax={shoulderPressMax}
-          handleInputChange={handleInputChange}
-          submitStrengthProfile={submitStrengthProfile}
-        />
-      </div>
+      <StrengthProfileForm
+        weight={weight}
+        benchMax={benchMax}
+        deadliftMax={deadliftMax}
+        squatMax={squatMax}
+        shoulderPressMax={shoulderPressMax}
+        handleInputChange={handleInputChange}
+        submitStrengthProfile={submitStrengthProfile}
+      />
     );
   }
 }

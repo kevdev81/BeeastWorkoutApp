@@ -48,21 +48,25 @@ class Register extends React.Component {
     history.replace("/");
   };
   render() {
-    const { email, firstName, lastName, password, passwordConfirm } = this.state;
+    const {
+      email,
+      firstName,
+      lastName,
+      password,
+      passwordConfirm
+    } = this.state;
     const { handleInputChange, registerUser, goToLoginPage } = this;
     return (
-      <div>
-        <RegisterForm
-          handleInputChange={handleInputChange}
-          registerUser={registerUser}
-          goToLoginPage={goToLoginPage}
-          email={email}
-          firstName={firstName}
-          lastName={lastName}
-          password={password}
-          passwordConfirm={passwordConfirm}
-        />
-      </div>
+      <RegisterForm
+        handleInputChange={handleInputChange}
+        registerUser={registerUser}
+        goToLoginPage={goToLoginPage}
+        email={email}
+        firstName={firstName}
+        lastName={lastName}
+        password={password}
+        passwordConfirm={passwordConfirm}
+      />
     );
   }
 }

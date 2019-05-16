@@ -11,7 +11,7 @@ export const handlePostRegisterUser = formData => {
     }
   };
   return axios(config)
-    .then(res => res.data)
+    .then(res => res.data.data)
     .catch(error => {
       console.log(error);
     });

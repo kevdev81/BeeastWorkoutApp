@@ -1,13 +1,15 @@
 import React from "react";
-import { Card, CardBody, Button } from "reactstrap";
+import Button from "react-bootstrap/Button";
+import "./register.css";
 
 class RegisterForm extends React.Component {
   render() {
     return (
-      <Card>
-        <CardBody>
+      <div className="registerForm">
+        <h1>Register</h1>
+        <div className="col-md-12">
           <form>
-            <div>
+            <div className="form-group">
               <label>Email:</label>
               <input
                 className="form-control"
@@ -18,7 +20,7 @@ class RegisterForm extends React.Component {
                 onChange={this.props.handleInputChange}
               />
             </div>
-            <div>
+            <div className="form-group">
               <label>First Name:</label>
               <input
                 className="form-control"
@@ -29,7 +31,7 @@ class RegisterForm extends React.Component {
                 onChange={this.props.handleInputChange}
               />
             </div>
-            <div>
+            <div className="form-group">
               <label>Last Name:</label>
               <input
                 className="form-control"
@@ -40,7 +42,7 @@ class RegisterForm extends React.Component {
                 onChange={this.props.handleInputChange}
               />
             </div>
-            <div>
+            <div className="form-group">
               <label>Password:</label>
               <input
                 className="form-control"
@@ -51,7 +53,7 @@ class RegisterForm extends React.Component {
                 onChange={this.props.handleInputChange}
               />
             </div>
-            <div>
+            <div className="form-group">
               <label>Confirm Password:</label>
               <input
                 className="form-control"
@@ -62,27 +64,29 @@ class RegisterForm extends React.Component {
                 onChange={this.props.handleInputChange}
               />
             </div>
-            <div>
-              <span>
-                <Button
-                  type="button"
-                  color="info"
-                  onClick={this.props.registerUser}
-                >
-                  Submit
-                </Button>
-                <Button
-                  type="button"
-                  color="danger"
-                  onClick={this.props.goToLoginPage}
-                >
-                  Cancel
-                </Button>
-              </span>
+            <div className="col-md-6">
+              <Button
+                type="button"
+                variant="info"
+                block
+                onClick={this.props.registerUser}
+              >
+                Submit
+              </Button>
+            </div>
+            <div className="col-md-6">
+              <Button
+                type="button"
+                variant="secondary"
+                block
+                onClick={this.props.goToLoginPage}
+              >
+                Cancel
+              </Button>
             </div>
           </form>
-        </CardBody>
-      </Card>
+        </div>
+      </div>
     );
   }
 }

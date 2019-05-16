@@ -42,14 +42,12 @@ class Login extends React.Component {
     const { email, password } = this.state;
     const { handleInputChange, loginUser } = this;
     return (
-      <div>
-        <LoginForm
-          email={email}
-          password={password}
-          handleInputChange={handleInputChange}
-          loginUser={loginUser}
-        />
-      </div>
+      <LoginForm
+        email={email}
+        password={password}
+        handleInputChange={handleInputChange}
+        loginUser={loginUser}
+      />
     );
   }
 }
