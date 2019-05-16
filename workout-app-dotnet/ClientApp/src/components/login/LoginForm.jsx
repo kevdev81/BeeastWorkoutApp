@@ -5,7 +5,7 @@ import "./login.css";
 class LoginForm extends React.Component {
   render() {
     return (
-      <div className="card">
+      <div>
         <h1>Login</h1>
         <div className="cardBody">
           <form>
