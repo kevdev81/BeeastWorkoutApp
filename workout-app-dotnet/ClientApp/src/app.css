@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Work+Sans");
 
 .appWrapper {
-  border: solid black 10px;
+  border: solid black 8px;
   height: 100%;
   width: 100%;
   position: fixed;
