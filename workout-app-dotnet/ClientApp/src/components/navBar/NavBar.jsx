@@ -4,37 +4,47 @@ import Navbar from "react-bootstrap/Navbar";
 import Form from "react-bootstrap/Form";
 import FormControl from "react-bootstrap/FormControl";
 import Button from "react-bootstrap/Button";
-// import ButtonGroup from "react-bootstrap/ButtonGroup";
-// import Dropdown from "react-bootstrap/Dropdown";
-// import DropdownButton from "react-bootstrap/DropdownButton";
+import Logout from "./Logout";
+import { FiHome, FiBook, FiHelpCircle, FiClipboard } from "react-icons/fi";
 import "./navBar.css";
 
 class NavBar extends React.Component {
+  logoutUser = () => {
+    localStorage.removeItem("currentUser");
+  };
   render() {
+    const { logoutUser } = this;
     return (
       <div className="navBarContainer">
         <Navbar bg="dark" variant="dark">
           <Navbar.Brand href="/home">Beeast</Navbar.Brand>
           <Nav className="mr-auto">
-            <Nav.Link href="/home">Home</Nav.Link>
-            <Nav.Link href="/journal">Journal</Nav.Link>
-            <Nav.Link href="/faqs">FAQs</Nav.Link>
+            <Nav.Link href="/home">
+              <Button variant="light">
+                <FiHome />
+                Home
+              </Button>
+            </Nav.Link>
+            <Nav.Link href="/journal">
+              <Button variant="light">
+                <FiBook />
+                Journal
+              </Button>
+            </Nav.Link>
+            <Nav.Link href="/faqs">
+              <Button variant="light">
+                <FiHelpCircle />
+                FAQs
+              </Button>
+            </Nav.Link>
+            <Nav.Link href="/workoutHome">
+              <Button variant="light">
+                <FiClipboard />
+                Workouts
+              </Button>
+            </Nav.Link>
           </Nav>
-          <Button variant="info" href="/workoutHome">
-            Workouts
-          </Button>
-          <Button variant="danger" href="/workoutHome">
-            Workouts
-          </Button>
-          {/* <DropdownButton
-            as={ButtonGroup}
-            variant="secondary"
-            title="Profile"
-            id="bg-vertical-dropdown-1"
-          >
-            <Dropdown.Item eventKey="1">Edit Profile</Dropdown.Item>
-            <Dropdown.Item eventKey="2">View Profile</Dropdown.Item>
-          </DropdownButton> */}
+          <Logout logoutUser={logoutUser} />
         </Navbar>
       </div>
     );
