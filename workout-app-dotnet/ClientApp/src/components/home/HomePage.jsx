@@ -1,25 +1,67 @@
 import React from "react";
-import Nav from "react-bootstrap/Nav";
+import Card from "react-bootstrap/Card";
+import ProfileDisplay from "./ProfileDisplay";
+import UserDisplay from "./UserDisplay";
+import "./homePage.css";
 
 class HomePage extends React.Component {
+  state = {
+    firstName: "Kevin",
+    lastName: "Kim",
+    email: "kevinkim.2012@gmail.com",
+    benchMax: 125,
+    deadliftMax: 125,
+    squatMax: 125,
+    shoulderPressMax: 125
+  };
+
+  //   componentDidMount() {
+  //     getUserById(localStorage.getItem("currentUser"))
+  //       .then(data => this.onGetSuccess(data.items))
+  //       .catch(this.onGetError);
+  //   }
+  //   onGetSuccess = data => {
+  //     this.setState({
+  //       firstName: data.firstName,
+  //       lastName: data.lastName,
+  //       email: data.email,
+  //       benchMax: data.benchMax,
+  //       deadliftMax: data.deadliftMax,
+  //       squatMax: data.squatMax,
+  //       shoulderPressMax: data.shoulderPressMax
+  //     });
+  //   };
+
   render() {
+    const {
+      firstName,
+      lastName,
+      email,
+      benchMax,
+      deadliftMax,
+      squatMax,
+      shoulderPressMax
+    } = this.state;
     return (
-      <Nav fill variant="tabs" defaultActiveKey="/home">
-        <Nav.Item>
-          <Nav.Link href="/home">Active</Nav.Link>
-        </Nav.Item>
-        <Nav.Item>
-          <Nav.Link eventKey="link-1">Loooonger NavLink</Nav.Link>
-        </Nav.Item>
-        <Nav.Item>
-          <Nav.Link eventKey="link-2">Link</Nav.Link>
-        </Nav.Item>
-        <Nav.Item>
-          <Nav.Link eventKey="disabled" disabled>
-            Disabled
-          </Nav.Link>
-        </Nav.Item>
-      </Nav>
+      <div className="homePageWrapper">
+        <div className="homePageContainer">
+          <div className="userDisplay">
+            <UserDisplay
+              firstName={firstName}
+              lastName={lastName}
+              email={email}
+            />
+          </div>
+          <div className="profileDisplay">
+            <ProfileDisplay
+              benchMax={benchMax}
+              deadliftMax={deadliftMax}
+              squatMax={squatMax}
+              shoulderPressMax={shoulderPressMax}
+            />
+          </div>
+        </div>
+      </div>
     );
   }
 }

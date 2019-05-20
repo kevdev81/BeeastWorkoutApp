@@ -3,14 +3,13 @@ import { createStore } from "redux";
 function reducer(state, action) {
   if (!state) {
     return {
-      currentUserId: 0
+      isAuth: false
     };
   }
 
-  if (action.type === "SET_CURRENT_USER_ID") {
+  if (action.type === "IS_AUTH_USER") {
     return {
-      ...state,
-      currentUserId: action.currentUserId
+      isAuth: action.isAuthUser
     };
   }
 }

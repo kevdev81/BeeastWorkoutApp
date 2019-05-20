@@ -1,5 +1,5 @@
 import store from "./store";
 
-export function setCurrentUserId(currentUserId) {
-  store.dispatch({ type: "SET_CURRENT_USER_ID", currentUserId });
+export function isAuthUser(authorized) {
+  store.dispatch({ type: "IS_AUTH_USER", authorized });
 }

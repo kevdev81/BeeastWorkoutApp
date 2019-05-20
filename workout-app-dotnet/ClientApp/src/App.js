@@ -1,6 +1,6 @@
 import React, { Suspense, lazy } from "react";
 import { Route, Switch, withRouter } from "react-router-dom";
-import PageLoader from "./components/pageLoader/PageLoader";
+import PageLoaderV2 from "./components/pageLoader/PageLoaderV2";
 import "./app.css";
 
 const LoginDisplay = lazy(() => import("./components/login/LoginDisplay"));
@@ -11,6 +11,7 @@ const Home = lazy(() => import("./components/home/Home"));
 const StrengthProfileDisplay = lazy(() =>
   import("./components/strengthProfile/StrengthProfileDisplay")
 );
+const WorkoutHome = lazy(() => import("./components/workouts/WorkoutHome"));
 
 class App extends React.Component {
   // constructor(props) {
@@ -22,7 +23,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <Suspense fallback={<PageLoader />}>
+      <Suspense fallback={<PageLoaderV2 />}>
         <div className="appWrapper">
           <Switch>
             <Route
@@ -40,6 +41,11 @@ class App extends React.Component {
               path="/strengthProfile"
               exact
               render={props => <StrengthProfileDisplay {...props} />}
+            />
+            <Route
+              path="/workoutHome"
+              exact
+              render={props => <WorkoutHome {...props} />}
             />
           </Switch>
         </div>
