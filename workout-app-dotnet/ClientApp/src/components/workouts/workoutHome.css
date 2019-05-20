@@ -24,6 +24,7 @@
   background-color: #f8f9fa;
   padding: 5%;
   height: 100%;
+  width: 100%;
   grid-column-start: 2;
   grid-column-end: 4;
   grid-row-start: 1;
@@ -36,6 +37,7 @@
   background-color: #f8f9fa;
   padding: 5%;
   height: 100%;
+  width: 100%;
   grid-column-start: 5;
   grid-column-end: 13;
   grid-row-start: 1;
@@ -43,7 +45,6 @@
 }
 
 h3 {
-  font-style: italic;
   font-weight: bold;
   text-align: center;
 }
