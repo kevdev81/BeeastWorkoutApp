@@ -2,7 +2,6 @@ import React from "react";
 import { handlePostRegisterUser } from "./registerService";
 import { Alert } from "reactstrap";
 import RegisterForm from "./RegisterForm";
-import history from "../../history";
 
 class Register extends React.Component {
   state = {
@@ -10,8 +9,7 @@ class Register extends React.Component {
     firstName: "",
     lastName: "",
     password: "",
-    passwordConfirm: "",
-    alert: ""
+    passwordConfirm: ""
   };
 
   handleInputChange = e => {
@@ -39,16 +37,7 @@ class Register extends React.Component {
   };
   onRegisterUserSuccess = () => {
     //delete log
-    let alert = (
-      <Alert color="info">
-        You have successfully registered!
-        <br />
-        <br />
-        <br />
-        Please save your portfolio # so that you can access your portfolio.
-      </Alert>
-    );
-    this.setState({ alert });
+    this.props.history.push("/");
     console.log("User has been successfully registered.");
   };
   onRegisterUserError = () => {
@@ -57,7 +46,7 @@ class Register extends React.Component {
   };
 
   goToLoginPage = () => {
-    history.push("/");
+    this.props.history.push("/");
   };
 
   render() {
@@ -66,8 +55,7 @@ class Register extends React.Component {
       firstName,
       lastName,
       password,
-      passwordConfirm,
-      alert
+      passwordConfirm
     } = this.state;
     const { handleInputChange, registerUser, goToLoginPage } = this;
     return (
@@ -80,7 +68,6 @@ class Register extends React.Component {
         lastName={lastName}
         password={password}
         passwordConfirm={passwordConfirm}
-        alert={alert}
       />
     );
   }

@@ -47,16 +47,33 @@ namespace workoutApp.Controllers
             return result;
         }
 
-        [HttpGet]
-        public ActionResult<ItemResponse<StrengthProfile>> GetByUserId(int UserId)
+        [HttpGet("{userId:int}")]
+        public ActionResult<ItemResponse<StrengthProfile>> GetByUserId(int userId)
         {
             ItemResponse<StrengthProfile> response = null;
             ActionResult result = null;
 
             try
             {
-                StrengthProfile strengthProfile = _strengthProfileService.GetByUserId
+                StrengthProfile strengthProfile = _strengthProfileService.GetByUserId(userId);
+
+                if (strengthProfile.Id > 0)
+                {
+                    response = new ItemResponse<StrengthProfile>();
+                    response.Item = strengthProfile;
+                    result = Ok200(response);
+                }
+                else
+                {
+                    result = NotFound404(new ErrorResponse("User information not found."));
+                }
             }
+            catch (Exception ex)
+            {
+                Logger.LogError(ex.ToString());
+                result = StatusCode(500, new ErrorResponse(ex.Message.ToString()));
+            }
+            return result;
         }
     }
 }

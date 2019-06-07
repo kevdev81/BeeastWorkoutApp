@@ -37,22 +37,22 @@ namespace workoutApp.Services
             return id;
         }
 
-        public StrengthProfile GetByUserId(int UserId)
+        public StrengthProfile GetByUserId(int userId)
         {
             StrengthProfile strengthProfile = new StrengthProfile();
             using (SqlConnection con = new SqlConnection(connString))
             {
                 SqlCommand cmd = new SqlCommand("dbo.StrengthProfile_SelectByUserId", con);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@UserId", UserId);
+                cmd.Parameters.AddWithValue("@UserId", userId);
 
                 con.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
                     strengthProfile.Id = (int)reader["Id"];
-                    strengthProfile.UserId = UserId;
-                    strengthProfile.Weight = (double)reader["Weight"];
+                    strengthProfile.UserId = userId;
+                    strengthProfile.Weight = (decimal)reader["Weight"];
                     strengthProfile.BenchMax = (int)reader["BenchMax"];
                     strengthProfile.DeadliftMax = (int)reader["DeadliftMax"];
                     strengthProfile.SquatMax = (int)reader["SquatMax"];
