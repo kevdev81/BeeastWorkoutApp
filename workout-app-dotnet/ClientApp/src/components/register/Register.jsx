@@ -1,7 +1,7 @@
 import React from "react";
 import { handlePostRegisterUser } from "./registerService";
-import { Alert } from "reactstrap";
 import RegisterForm from "./RegisterForm";
+import history from "../../history";
 
 class Register extends React.Component {
   state = {
@@ -37,7 +37,7 @@ class Register extends React.Component {
   };
   onRegisterUserSuccess = () => {
     //delete log
-    this.props.history.push("/");
+    history.push("/");
     console.log("User has been successfully registered.");
   };
   onRegisterUserError = () => {
@@ -46,7 +46,7 @@ class Register extends React.Component {
   };
 
   goToLoginPage = () => {
-    this.props.history.push("/");
+    history.goBack();
   };
 
   render() {

@@ -2,6 +2,7 @@ import React from "react";
 import Card from "react-bootstrap/Card";
 import ProfileDisplay from "./ProfileDisplay";
 import UserDisplay from "./UserDisplay";
+import { getStrengthProfileByUserId } from "./homeService";
 import "./homePage.css";
 
 class HomePage extends React.Component {
@@ -9,28 +10,28 @@ class HomePage extends React.Component {
     firstName: "Kevin",
     lastName: "Kim",
     email: "kevinkim.2012@gmail.com",
-    benchMax: 125,
-    deadliftMax: 125,
-    squatMax: 125,
-    shoulderPressMax: 125
+    benchMax: null,
+    deadliftMax: null,
+    squatMax: null,
+    shoulderPressMax: null
   };
 
-  //   componentDidMount() {
-  //     getUserById(localStorage.getItem("currentUser"))
-  //       .then(data => this.onGetSuccess(data.items))
-  //       .catch(this.onGetError);
-  //   }
-  //   onGetSuccess = data => {
-  //     this.setState({
-  //       firstName: data.firstName,
-  //       lastName: data.lastName,
-  //       email: data.email,
-  //       benchMax: data.benchMax,
-  //       deadliftMax: data.deadliftMax,
-  //       squatMax: data.squatMax,
-  //       shoulderPressMax: data.shoulderPressMax
-  //     });
-  //   };
+  componentDidMount() {
+    getStrengthProfileByUserId(localStorage.getItem("currentUser"))
+      .then(data => this.onGetSuccess(data.data.item))
+      .catch(this.onGetError);
+  }
+  onGetSuccess = data => {
+    this.setState({
+      // firstName: data.firstName,
+      // lastName: data.lastName,
+      // email: data.email,
+      benchMax: data.benchMax,
+      deadliftMax: data.deadliftMax,
+      squatMax: data.squatMax,
+      shoulderPressMax: data.shoulderPressMax
+    });
+  };
 
   render() {
     const {

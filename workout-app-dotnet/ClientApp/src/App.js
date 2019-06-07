@@ -1,13 +1,14 @@
 import React, { Suspense, lazy } from "react";
 import { Route, Switch, withRouter } from "react-router-dom";
 import PageLoaderV2 from "./components/pageLoader/PageLoaderV2";
+import Home from "./components/home/Home";
 import "./app.css";
 
 const LoginDisplay = lazy(() => import("./components/login/LoginDisplay"));
 const RegisterDisplay = lazy(() =>
   import("./components/register/RegisterDisplay")
 );
-const Home = lazy(() => import("./components/home/Home"));
+// const Home = lazy(() => import("./components/home/Home"));
 const StrengthProfileDisplay = lazy(() =>
   import("./components/strengthProfile/StrengthProfileDisplay")
 );

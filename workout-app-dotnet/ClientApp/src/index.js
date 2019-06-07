@@ -8,7 +8,6 @@ import App from "./App";
 import { Provider } from "react-redux";
 import store from "./components/store";
 import history from "./history";
-import Spinner from "react-bootstrap/Spinner.js";
 
 const baseUrl = document.getElementsByTagName("base")[0].getAttribute("href");
 const rootElement = document.getElementById("root");
