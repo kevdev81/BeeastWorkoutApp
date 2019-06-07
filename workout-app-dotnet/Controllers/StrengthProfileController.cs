@@ -5,6 +5,7 @@ using workoutApp.Controllers.Temp;
 using workoutApp.Interfaces;
 using workoutApp.Models.Responses;
 using workoutApp.Models.StrengthProfile;
+using workoutApp.Models.StrengthProfile.StrengthProfile;
 
 namespace workoutApp.Controllers
 {
@@ -44,6 +45,18 @@ namespace workoutApp.Controllers
                 result = StatusCode(500, new ErrorResponse(ex.Message.ToString()));
             }
             return result;
+        }
+
+        [HttpGet]
+        public ActionResult<ItemResponse<StrengthProfile>> GetByUserId(int UserId)
+        {
+            ItemResponse<StrengthProfile> response = null;
+            ActionResult result = null;
+
+            try
+            {
+                StrengthProfile strengthProfile = _strengthProfileService.GetByUserId
+            }
         }
     }
 }

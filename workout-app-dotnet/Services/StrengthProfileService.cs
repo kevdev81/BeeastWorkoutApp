@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using System.Data.SqlClient;
 using workoutApp.Interfaces;
 using workoutApp.Models.StrengthProfile;
@@ -35,5 +36,48 @@ namespace workoutApp.Services
             }
             return id;
         }
+
+        public StrengthProfile GetByUserId(int UserId)
+        {
+            StrengthProfile strengthProfile = new StrengthProfile();
+            using (SqlConnection con = new SqlConnection(connString))
+            {
+                SqlCommand cmd = new SqlCommand("dbo.StrengthProfile_SelectByUserId", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@UserId", UserId);
+
+                con.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    strengthProfile.Id = (int)reader["Id"];
+                    strengthProfile.UserId = UserId;
+                    strengthProfile.Weight = (double)reader["Weight"];
+                    strengthProfile.BenchMax = (int)reader["BenchMax"];
+                    strengthProfile.DeadliftMax = (int)reader["DeadliftMax"];
+                    strengthProfile.SquatMax = (int)reader["SquatMax"];
+                    strengthProfile.ShoulderPressMax = (int)reader["ShoulderPressMax"];
+                    strengthProfile.DateCreated = Convert.ToDateTime(reader["DateCreated"]);
+                    strengthProfile.DateModified = Convert.ToDateTime(reader["DateModified"]);
+                }
+                con.Close();
+            }
+            return strengthProfile;
+        }
+
+        //public void Update(int UserId)
+        //{
+        //    using (SqlConnection con = new SqlConnection(connString))
+        //    {
+        //        SqlCommand cmd = new SqlCommand("dbo.User_UpdateHasStrengthProfile", con);
+        //        cmd.CommandType = CommandType.StoredProcedure;
+
+        //        cmd.Parameters.AddWithValue("@Id", UserId);
+
+        //        con.Open();
+        //        cmd.ExecuteNonQuery();
+        //        con.Close();
+        //    }
+        //}
     }
 }

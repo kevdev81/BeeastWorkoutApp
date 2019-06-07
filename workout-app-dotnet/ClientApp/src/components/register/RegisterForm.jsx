@@ -86,6 +86,7 @@ class RegisterForm extends React.Component {
             </div>
           </form>
         </div>
+        <div>{this.props.alert}</div>
       </div>
     );
   }

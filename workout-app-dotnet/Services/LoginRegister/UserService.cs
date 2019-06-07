@@ -45,6 +45,7 @@ namespace workoutApp.Services.LoginRegister
                     userInfo.Password = (string)reader["Password"];
                     userInfo.HasProfile = (bool)reader["HasProfile"];
                 }
+                con.Close();
             }
             return userInfo;
         }

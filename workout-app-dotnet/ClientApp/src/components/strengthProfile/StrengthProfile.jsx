@@ -36,6 +36,7 @@ class StrengthProfile extends React.Component {
   };
   onPostSuccess = data => {
     console.log(data);
+    this.props.history.push("/home");
   };
   onPostError = () => {
     console.log("error");
