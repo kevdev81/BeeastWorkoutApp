@@ -1,72 +1,67 @@
 import React from "react";
-import Table from "react-bootstrap/Table";
+import Form from "react-bootstrap/Form";
+import WendlerTable from "./WendlerTable";
 import "./workouts.css";
 class Wendler extends React.Component {
   state = {
-    w1: "5 reps",
-    w1ls: "5+ reps",
-    w2: "3 reps",
-    w2ls: "3+ reps",
-    w3s1: "5 reps",
-    w3s2: "3 reps",
-    w3ls: "1+ reps"
+    week: "1"
   };
+
+  handleInputChange = e => {
+    const target = e.target;
+    const value = target.value;
+    const name = target.name;
+
+    this.setState({
+      [name]: value
+    });
+  };
+
   render() {
+    const number = this.state.week;
+    const week1 = ["5 reps", "5 reps", "5+ reps"];
+    const week2 = ["3 reps", "3 reps", "3+ reps"];
+    const week3 = ["5 reps", "3 reps", "1+ reps"];
+    const week4 = ["5 reps", "5 reps", "5 reps"];
     return (
-      <Table responsive striped bordered hover variant="dark">
-        <thead className="tableHeaderContainer">
-          <tr>
-            <th className="tableLeftTopCorner tableHeader">Week 1</th>
-            <th colSpan="2" className="tableHeader set">
-              Bench
-            </th>
-            <th colSpan="2" className="tableHeader set">
-              Squat
-            </th>
-            <th colSpan="2" className="tableHeader set">
-              Deadlift
-            </th>
-            <th colSpan="2" className="tableHeader set">
-              Shoulder Press
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Set 1</td>
-            <td>135</td>
-            <td>{this.state.w1}</td>
-            <td>135</td>
-            <td>{this.state.w1}</td>
-            <td>135</td>
-            <td>{this.state.w1}</td>
-            <td>135</td>
-            <td>{this.state.w1ls}</td>
-          </tr>
-          <tr>
-            <td>Set 2</td>
-            <td>135</td>
-            <td>{this.state.w1}</td>
-            <td>135</td>
-            <td>{this.state.w1}</td>
-            <td>135</td>
-            <td>{this.state.w1}</td>
-            <td>135</td>
-            <td>{this.state.w1ls}</td>
-          </tr>
-          <tr>
-            <td>Set 3</td>
-            <td>135</td>
-            <td>{this.state.w1}</td>
-            <td>135</td>
-            <td>{this.state.w1}</td>
-            <td>135</td>
-            <td>{this.state.w1}</td>
-            <td>135</td>
-            <td>{this.state.w1ls}</td>
-          </tr>
-        </tbody>
-      </Table>
+      <React.Fragment>
+        <Form className="wendlerSelect">
+          <Form.Group>
+            <Form.Control
+              as="select"
+              name="week"
+              value={this.state.week}
+              onChange={this.handleInputChange}
+            >
+              <option value="1">Week 1</option>
+              <option value="2">Week 2</option>
+              <option value="3">Week 3</option>
+              <option value="4">Week 4</option>
+              <option value="5">Show All</option>
+            </Form.Control>
+          </Form.Group>
+          {this.state.week === "1" ? (
+            <WendlerTable week={week1} number={number} />
+          ) : null}
+          {this.state.week === "2" ? (
+            <WendlerTable week={week2} number={number} />
+          ) : null}
+          {this.state.week === "3" ? (
+            <WendlerTable week={week3} number={number} />
+          ) : null}
+          {this.state.week === "4" ? (
+            <WendlerTable week={week4} number={number} />
+          ) : null}
+          {this.state.week === "5" ? (
+            <React.Fragment>
+              <WendlerTable week={week1} number="1" />
+              <WendlerTable week={week2} number="2" />
+              <WendlerTable week={week3} number="3" />
+              <WendlerTable week={week4} number="4" />
+            </React.Fragment>
+          ) : null}
+        </Form>
+      </React.Fragment>
     );
   }
 }

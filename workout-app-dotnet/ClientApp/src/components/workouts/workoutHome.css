@@ -21,7 +21,7 @@
 .workoutNavContainer {
   object-fit: cover;
   padding-left: 0.6%;
-  width: 100%
+  width: 100%;
 }
 
 .workoutNavbar {
@@ -48,9 +48,15 @@
   grid-column-end: 13;
   grid-row-start: 3;
   grid-row-end: 5;
+  overflow: auto
 }
 
 h3 {
   font-weight: bold;
   text-align: center;
+}
+
+.wendlerSelect {
+  color: black;
+  align-items: flex-start;
 }

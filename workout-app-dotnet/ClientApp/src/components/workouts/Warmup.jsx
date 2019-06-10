@@ -9,40 +9,47 @@ class Warmup extends React.Component {
         <thead className="tableHeaderContainer">
           <tr>
             <th className="tableLeftTopCorner tableHeader">Lift</th>
-            <th className="tableHeader set">Set 1</th>
-            <th className="tableHeader set">Set 2</th>
-            <th className="tableHeader set">Set 3</th>
-            <th className="tableHeader set">Set 4</th>
+            <th colSpan="2" className="tableHeader set">Set 1</th>
+            <th colSpan="2" className="tableHeader set">Set 2</th>
+            <th colSpan="2" className="tableHeader set">Set 3</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
+        <tr>
             <td>Bench</td>
             <td>135</td>
+            <td>5 reps</td>
             <td>135</td>
+            <td>5 reps</td>
             <td>135</td>
-            <td>135</td>
+            <td>3 reps</td>
           </tr>
           <tr>
             <td>Deadlift</td>
             <td>135</td>
+            <td>5 reps</td>
             <td>135</td>
+            <td>5 reps</td>
             <td>135</td>
-            <td>135</td>
+            <td>3 reps</td>
           </tr>
           <tr>
             <td>Squat</td>
             <td>135</td>
+            <td>5 reps</td>
             <td>135</td>
+            <td>5 reps</td>
             <td>135</td>
-            <td>135</td>
+            <td>3 reps</td>
           </tr>
           <tr>
             <td>Shoulder Press</td>
             <td>135</td>
+            <td>5 reps</td>
             <td>135</td>
+            <td>5 reps</td>
             <td>135</td>
-            <td>135</td>
+            <td>3 reps</td>
           </tr>
         </tbody>
       </Table>
