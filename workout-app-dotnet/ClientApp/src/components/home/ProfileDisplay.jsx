@@ -4,8 +4,7 @@ import Card from "react-bootstrap/Card";
 class ProfileDisplay extends React.Component {
   render() {
     return (
-      <Card bg="dark" text="white" className="outer">
-        <Card.Header>Profile</Card.Header>
+      <Card bg="dark" className="outer">
         <Card.Title>Compound Lift Maximums</Card.Title>
         <Card.Body>
           <div>

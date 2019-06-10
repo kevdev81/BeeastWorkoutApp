@@ -2,6 +2,15 @@ import React from "react";
 import Table from "react-bootstrap/Table";
 import "./workouts.css";
 class Wendler extends React.Component {
+  state = {
+    w1: "5 reps",
+    w1ls: "5+ reps",
+    w2: "3 reps",
+    w2ls: "3+ reps",
+    w3s1: "5 reps",
+    w3s2: "3 reps",
+    w3ls: "1+ reps"
+  };
   render() {
     return (
       <Table responsive striped bordered hover variant="dark">
@@ -25,24 +34,36 @@ class Wendler extends React.Component {
         <tbody>
           <tr>
             <td>Set 1</td>
-            <td>135</td> <td>5 reps</td>
-            <td>135</td> <td>5 reps</td>
-            <td>135</td> <td>5 reps</td>
-            <td>135</td> <td>5+ reps</td>
+            <td>135</td>
+            <td>{this.state.w1}</td>
+            <td>135</td>
+            <td>{this.state.w1}</td>
+            <td>135</td>
+            <td>{this.state.w1}</td>
+            <td>135</td>
+            <td>{this.state.w1ls}</td>
           </tr>
           <tr>
             <td>Set 2</td>
-            <td>135</td> <td>5 reps</td>
-            <td>135</td> <td>5 reps</td>
-            <td>135</td> <td>5 reps</td>
-            <td>135</td> <td>5+ reps</td>
+            <td>135</td>
+            <td>{this.state.w1}</td>
+            <td>135</td>
+            <td>{this.state.w1}</td>
+            <td>135</td>
+            <td>{this.state.w1}</td>
+            <td>135</td>
+            <td>{this.state.w1ls}</td>
           </tr>
           <tr>
             <td>Set 3</td>
-            <td>135</td> <td>5 reps</td>
-            <td>135</td> <td>5 reps</td>
-            <td>135</td> <td>5 reps</td>
-            <td>135</td> <td>5+ reps</td>
+            <td>135</td>
+            <td>{this.state.w1}</td>
+            <td>135</td>
+            <td>{this.state.w1}</td>
+            <td>135</td>
+            <td>{this.state.w1}</td>
+            <td>135</td>
+            <td>{this.state.w1ls}</td>
           </tr>
         </tbody>
       </Table>

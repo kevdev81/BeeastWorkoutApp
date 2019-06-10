@@ -6,6 +6,7 @@
 
 .homePageContainer {
   display: grid;
+  font-size: 1.25em;
   grid-template-columns: repeat(8, 1fr);
   grid-template-rows: repeat(12, 50px);
 }
@@ -17,22 +18,22 @@
   grid-column-start: 2;
   grid-column-end: 4;
   grid-row-start: 1;
-  grid-row-end: 10;
+  grid-row-end: 12;
 }
 .profileDisplay {
   justify-content: center;
-  font-size: 1em;
   padding-left: 1%;
   margin: 5px;
   grid-column-start: 4;
   grid-column-end: 8;
   grid-row-start: 1;
-  grid-row-end: 10;
+  grid-row-end: 12;
 }
-div.card {
-  height: 100%;
-  width: 100%;
-}
-div.card-title {
+.card-title {
   align-self: center;
+}
+.card-img-bottom {
+  max-height: 400px;
+  min-height: 200px;
+  object-fit: cover;
 }

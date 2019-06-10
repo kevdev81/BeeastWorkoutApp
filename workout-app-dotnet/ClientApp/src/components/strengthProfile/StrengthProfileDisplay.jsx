@@ -1,5 +1,6 @@
 import React from "react";
 import StrengthProfile from "./StrengthProfile";
+import Card from "react-bootstrap/Card";
 import "./strengthProfile.css";
 
 class StrengthProfileDisplay extends React.Component {
@@ -8,7 +9,9 @@ class StrengthProfileDisplay extends React.Component {
       <div className="strengthProfileWrapper">
         <div className="strengthProfileContainer">
           <div className="strengthProfile">
-            <StrengthProfile {...this.props} />
+            <Card className="outer">
+              <StrengthProfile {...this.props} />
+            </Card>
           </div>
         </div>
       </div>

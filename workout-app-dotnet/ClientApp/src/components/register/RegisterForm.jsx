@@ -1,11 +1,12 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
 import "./register.css";
 
 class RegisterForm extends React.Component {
   render() {
     return (
-      <div className="registerForm">
+      <Card className="outer">
         <h1>Register</h1>
         <div className="col-md-12">
           <form>
@@ -86,7 +87,7 @@ class RegisterForm extends React.Component {
             </div>
           </form>
         </div>
-      </div>
+      </Card>
     );
   }
 }

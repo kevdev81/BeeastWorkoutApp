@@ -20,7 +20,7 @@ class WorkoutHome extends React.Component {
       <React.Fragment>
         <NavBar />
         <div className="workout">
-          <Card className="workoutNavbar" bg="dark" text="white">
+          <Card className="workoutNavbar outer" bg="dark" text="white">
             <h1>Workouts</h1>
             <hr />
             <Card bg="dark" className="workoutNavContainer">

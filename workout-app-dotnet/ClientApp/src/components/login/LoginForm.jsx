@@ -1,11 +1,12 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
 import "./login.css";
 
 class LoginForm extends React.Component {
   render() {
     return (
-      <div>
+      <Card className="outer">
         <h1>Login</h1>
         <div className="cardBody">
           <form>
@@ -45,7 +46,7 @@ class LoginForm extends React.Component {
             </div>
           </form>
         </div>
-      </div>
+      </Card>
     );
   }
 }
