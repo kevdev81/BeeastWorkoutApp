@@ -1,11 +1,10 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
-import getUserById from "./homeService";
 
 class ProfileDisplay extends React.Component {
   render() {
     return (
-      <Card bg="dark" text="white">
+      <Card bg="dark" text="white" className="outer">
         <Card.Header>Profile</Card.Header>
         <Card.Title>Compound Lift Maximums</Card.Title>
         <Card.Body>

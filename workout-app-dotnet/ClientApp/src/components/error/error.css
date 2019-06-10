@@ -1,0 +1,13 @@
+.error {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+div.card {
+  text-align: center;
+  grid-column: 2 / 5;
+  border: solid 1px black;
+  padding-bottom: 5%;
+  margin: 2%;
+  object-position: center;
+}

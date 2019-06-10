@@ -4,7 +4,7 @@ import Card from "react-bootstrap/Card";
 class UserDisplay extends React.Component {
   render() {
     return (
-      <Card bg="dark" text="white">
+      <Card bg="dark" text="white" className="outer">
         <Card.Header>
           {this.props.firstName} {this.props.lastName}
         </Card.Header>

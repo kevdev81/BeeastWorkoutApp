@@ -2,35 +2,57 @@ import React from "react";
 import Nav from "react-bootstrap/Nav";
 import Card from "react-bootstrap/Card";
 import NavBar from "../navBar/NavBar";
-import Wendler from "./Wendler";
-import BBB from "./BBB";
-import Texas from "./Texas";
-import { Route, Switch, withRouter } from "react-router-dom";
+import ActiveWorkout from "./ActiveWorkout";
 import "./workoutHome.css";
 
 class WorkoutHome extends React.Component {
+  state = {
+    active: "Warmup"
+  };
+
+  setActiveWorkout = function(active) {
+    console.log(active);
+    this.setState({ active });
+  };
+
   render() {
     return (
       <React.Fragment>
         <NavBar />
         <div className="workout">
-          <Card className="workoutSidebar">
-            <Nav
-              defaultActiveKey="link-1"
-              variant="pills"
-              className="flex-column"
-            >
-              <h3>Workouts</h3>
-              <Nav.Link eventKey="link-1">531 Wendler's</Nav.Link>
-              <Nav.Link eventKey="link-2">Boring But Big</Nav.Link>
-              <Nav.Link eventKey="link-3">Texas Method</Nav.Link>
-            </Nav>
+          <Card className="workoutNavbar" bg="dark" text="white">
+            <h1>Workouts</h1>
+            <hr />
+            <Card bg="dark" className="workoutNavContainer">
+              <Nav
+                variant="pills"
+                defaultActiveKey="Warmup"
+                onSelect={selectedKey =>
+                  this.setActiveWorkout(`${selectedKey}`)
+                }
+              >
+                <Nav.Item>
+                  <Nav.Link eventKey="Warmup">Warm Up</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link eventKey="Wendler">Wendler's 5-3-1</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link eventKey="BBB">Boring But Big</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link eventKey="Texas">Texas Method</Nav.Link>
+                </Nav.Item>
+              </Nav>
+            </Card>
+            <Card className="workoutMain">
+              <ActiveWorkout active={this.state.active} />
+            </Card>
           </Card>
-          <Card className="workoutMain">Main</Card>
         </div>
       </React.Fragment>
     );
   }
 }
 
-export default withRouter(WorkoutHome);
+export default WorkoutHome;

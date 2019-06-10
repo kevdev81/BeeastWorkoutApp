@@ -1,5 +1,4 @@
 import React from "react";
-import Card from "react-bootstrap/Card";
 import ProfileDisplay from "./ProfileDisplay";
 import UserDisplay from "./UserDisplay";
 import { getStrengthProfileByUserId } from "./homeService";
@@ -23,9 +22,6 @@ class HomePage extends React.Component {
   }
   onGetSuccess = data => {
     this.setState({
-      // firstName: data.firstName,
-      // lastName: data.lastName,
-      // email: data.email,
       benchMax: data.benchMax,
       deadliftMax: data.deadliftMax,
       squatMax: data.squatMax,

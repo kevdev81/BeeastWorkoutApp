@@ -1,8 +1,6 @@
 import React from "react";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import Form from "react-bootstrap/Form";
-import FormControl from "react-bootstrap/FormControl";
 import Button from "react-bootstrap/Button";
 import Logout from "./Logout";
 import { FiHome, FiBook, FiHelpCircle, FiClipboard } from "react-icons/fi";
@@ -16,7 +14,7 @@ class NavBar extends React.Component {
     const { logoutUser } = this;
     return (
       <div className="navBarContainer">
-        <Navbar bg="dark" variant="dark">
+        <Navbar sticky="top" bg="dark" variant="dark" className="navBar">
           <Navbar.Brand href="/home">Beeast</Navbar.Brand>
           <Nav className="mr-auto">
             <Nav.Link href="/home">

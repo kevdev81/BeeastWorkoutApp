@@ -1,0 +1,16 @@
+th.set {
+  text-align: center;
+  font-size: 125%;
+  width: 19%;
+  text-decoration: underline;
+}
+th.tableLeftTopCorner {
+  text-align: center;
+  font-size: 125%;
+  width: 24%;
+  text-decoration: underline;
+}
+th {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+}
