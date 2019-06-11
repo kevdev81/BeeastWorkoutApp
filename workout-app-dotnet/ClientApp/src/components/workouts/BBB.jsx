@@ -1,11 +1,10 @@
 import React from "react";
 import Table from "react-bootstrap/Table";
-import "./workouts.css";
 
 class BBB extends React.Component {
   render() {
     return (
-      <Table responsive striped  bordered hover variant="dark">
+      <Table responsive striped bordered hover variant="dark">
         <thead className="tableHeaderContainer">
           <tr>
             <th className="tableLeftTopCorner tableHeader">Lift</th>

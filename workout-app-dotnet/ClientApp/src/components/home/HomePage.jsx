@@ -2,17 +2,23 @@ import React from "react";
 import ProfileDisplay from "./ProfileDisplay";
 import UserDisplay from "./UserDisplay";
 import { getStrengthProfileByUserId } from "./homeService";
+import { setStrengthProfile } from "../actions";
+import { connect } from "react-redux";
 import "./homePage.css";
 
 class HomePage extends React.Component {
   state = {
-    firstName: "Kevin",
-    lastName: "Kim",
-    email: "kevinkim.2012@gmail.com",
-    benchMax: null,
-    deadliftMax: null,
-    squatMax: null,
-    shoulderPressMax: null
+    // firstName: "Kevin",
+    // lastName: "Kim",
+    // email: "kevinkim.2012@gmail.com",
+    // benchMax: null,
+    // deadliftMax: null,
+    // squatMax: null,
+    // shoulderPressMax: null
+    benchMax: 135,
+    deadliftMax: 135,
+    squatMax: 135,
+    shoulderPressMax: 135
   };
 
   componentDidMount() {
@@ -29,6 +35,10 @@ class HomePage extends React.Component {
     });
   };
 
+  tryRedux = () => {
+    this.props.setStrengthProfile(this.state);
+  };
+
   render() {
     const {
       firstName,
@@ -43,6 +53,7 @@ class HomePage extends React.Component {
       <div className="homePageWrapper">
         <div className="homePageContainer">
           <div className="userDisplay">
+            <button onClick={this.tryRedux}>redux</button>
             <UserDisplay
               firstName={firstName}
               lastName={lastName}
@@ -63,4 +74,23 @@ class HomePage extends React.Component {
   }
 }
 
-export default HomePage;
+function mapStateToProps(state) {
+  return {
+    benchMax: state.benchMax,
+    deadliftMax: state.deadliftMax,
+    squatMax: state.squatMax,
+    shoulderPressMax: state.shoulderPressMax
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    setStrengthProfile: strengthProfile =>
+      dispatch({ type: "SET_STRENGTH_PROFILE", strengthProfile })
+  };
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(HomePage);

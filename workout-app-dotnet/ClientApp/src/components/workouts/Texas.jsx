@@ -1,6 +1,6 @@
 import React from "react";
 import Table from "react-bootstrap/Table";
-import "./workouts.css";
+
 class Texas extends React.Component {
   render() {
     return (

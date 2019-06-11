@@ -1,7 +1,7 @@
 import React from "react";
 import Form from "react-bootstrap/Form";
 import WendlerTable from "./WendlerTable";
-import "./workouts.css";
+
 class Wendler extends React.Component {
   state = {
     week: "1"

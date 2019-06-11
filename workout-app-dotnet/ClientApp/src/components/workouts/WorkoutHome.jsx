@@ -11,7 +11,6 @@ class WorkoutHome extends React.Component {
   };
 
   setActiveWorkout = function(active) {
-    console.log(active);
     this.setState({ active });
   };
 
@@ -20,7 +19,7 @@ class WorkoutHome extends React.Component {
       <React.Fragment>
         <NavBar />
         <div className="workout">
-          <Card className="workoutNavbar outer" bg="dark" text="white">
+          <Card className="workoutHome outer" bg="dark" text="white">
             <h1>Workouts</h1>
             <hr />
             <Card bg="dark" className="workoutNavContainer">
