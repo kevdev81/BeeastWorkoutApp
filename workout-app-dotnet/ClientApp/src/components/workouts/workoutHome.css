@@ -61,3 +61,21 @@ h3 {
   color: black;
   align-items: flex-start;
 }
+
+th.set {
+  text-align: center;
+  font-size: 1em;
+  width: 19%;
+  text-decoration: underline;
+}
+th.tableLeftTopCorner {
+  text-align: center;
+  font-size: 1.25em;
+  width: 24%;
+  color: #007bff;
+  /* text-decoration: underline; */
+}
+th {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+}
