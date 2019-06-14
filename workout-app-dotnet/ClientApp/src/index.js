@@ -9,7 +9,7 @@ import { Provider } from "react-redux";
 import history from "./history";
 import { PersistGate } from "redux-persist/integration/react";
 import PageLoaderV2 from "./components/pageLoader/PageLoaderV2";
-import { store, persistor } from "./components/store";
+import { store, persistor } from "./components/redux/store";
 
 const baseUrl = document.getElementsByTagName("base")[0].getAttribute("href");
 const rootElement = document.getElementById("root");

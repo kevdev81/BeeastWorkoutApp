@@ -3,6 +3,7 @@ import Nav from "react-bootstrap/Nav";
 import Card from "react-bootstrap/Card";
 import NavBar from "../navBar/NavBar";
 import ActiveWorkout from "./ActiveWorkout";
+import { connect } from "react-redux";
 import "./workoutHome.css";
 
 class WorkoutHome extends React.Component {
@@ -15,6 +16,12 @@ class WorkoutHome extends React.Component {
   };
 
   render() {
+    const {
+      benchMax,
+      deadliftMax,
+      squatMax,
+      shoulderPressMax
+    } = this.props.strengthProfile;
     return (
       <React.Fragment>
         <NavBar />
@@ -45,7 +52,13 @@ class WorkoutHome extends React.Component {
               </Nav>
             </Card>
             <Card className="workoutMain">
-              <ActiveWorkout active={this.state.active} />
+              <ActiveWorkout
+                active={this.state.active}
+                benchMax={benchMax}
+                deadliftMax={deadliftMax}
+                squatMax={squatMax}
+                shoulderPressMax={shoulderPressMax}
+              />
             </Card>
           </Card>
         </div>
@@ -54,4 +67,10 @@ class WorkoutHome extends React.Component {
   }
 }
 
-export default WorkoutHome;
+const mapStateToProps = state => {
+  return {
+    strengthProfile: state.strengthProfileReducer
+  };
+};
+
+export default connect(mapStateToProps)(WorkoutHome);

@@ -21,6 +21,9 @@ namespace workoutApp.Services.LoginRegister
                 if (validPassword)
                 {
                     currentUser.Id = loginUserModel.Id;
+                    currentUser.FirstName = loginUserModel.FirstName;
+                    currentUser.LastName = loginUserModel.LastName;
+                    currentUser.Email = loginUserModel.Email;
                     currentUser.HasProfile = loginUserModel.HasProfile;
                 }
             }
@@ -42,6 +45,8 @@ namespace workoutApp.Services.LoginRegister
                 {
                     userInfo.Email = email;
                     userInfo.Id = (int)reader["Id"];
+                    userInfo.FirstName = (string)reader["FirstName"];
+                    userInfo.LastName = (string)reader["LastName"];
                     userInfo.Password = (string)reader["Password"];
                     userInfo.HasProfile = (bool)reader["HasProfile"];
                 }

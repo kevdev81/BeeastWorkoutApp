@@ -22,38 +22,38 @@ class Warmup extends React.Component {
         <tbody>
           <tr>
             <td>Bench</td>
-            <td>135</td>
+            <td>{this.props.strengthProfile.benchMax}</td>
             <td>5 reps</td>
-            <td>135</td>
+            <td>{this.props.strengthProfile.benchMax}</td>
             <td>5 reps</td>
-            <td>135</td>
+            <td>{this.props.strengthProfile.benchMax}</td>
             <td>3 reps</td>
           </tr>
           <tr>
             <td>Deadlift</td>
-            <td>135</td>
+            <td>{this.props.strengthProfile.deadliftMax}</td>
             <td>5 reps</td>
-            <td>135</td>
+            <td>{this.props.strengthProfile.deadliftMax}</td>
             <td>5 reps</td>
-            <td>135</td>
+            <td>{this.props.strengthProfile.deadliftMax}</td>
             <td>3 reps</td>
           </tr>
           <tr>
             <td>Squat</td>
-            <td>135</td>
+            <td>{this.props.strengthProfile.squatMax}</td>
             <td>5 reps</td>
-            <td>135</td>
+            <td>{this.props.strengthProfile.squatMax}</td>
             <td>5 reps</td>
-            <td>135</td>
+            <td>{this.props.strengthProfile.squatMax}</td>
             <td>3 reps</td>
           </tr>
           <tr>
             <td>Shoulder Press</td>
-            <td>135</td>
+            <td>{this.props.strengthProfile.shoulderPressMax}</td>
             <td>5 reps</td>
-            <td>135</td>
+            <td>{this.props.strengthProfile.shoulderPressMax}</td>
             <td>5 reps</td>
-            <td>135</td>
+            <td>{this.props.strengthProfile.shoulderPressMax}</td>
             <td>3 reps</td>
           </tr>
         </tbody>

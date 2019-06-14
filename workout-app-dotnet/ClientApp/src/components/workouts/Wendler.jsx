@@ -18,6 +18,7 @@ class Wendler extends React.Component {
   };
 
   render() {
+    const strengthProfile = this.props.strengthProfile;
     const number = this.state.week;
     const week1 = ["5 reps", "5 reps", "5+ reps"];
     const week2 = ["3 reps", "3 reps", "3+ reps"];
@@ -41,23 +42,55 @@ class Wendler extends React.Component {
             </Form.Control>
           </Form.Group>
           {this.state.week === "1" ? (
-            <WendlerTable week={week1} number={number} />
+            <WendlerTable
+              week={week1}
+              number={number}
+              strengthProfile={strengthProfile}
+            />
           ) : null}
           {this.state.week === "2" ? (
-            <WendlerTable week={week2} number={number} />
+            <WendlerTable
+              week={week2}
+              number={number}
+              strengthProfile={strengthProfile}
+            />
           ) : null}
           {this.state.week === "3" ? (
-            <WendlerTable week={week3} number={number} />
+            <WendlerTable
+              week={week3}
+              number={number}
+              strengthProfile={strengthProfile}
+            />
           ) : null}
           {this.state.week === "4" ? (
-            <WendlerTable week={week4} number={number} />
+            <WendlerTable
+              week={week4}
+              number={number}
+              strengthProfile={strengthProfile}
+            />
           ) : null}
           {this.state.week === "5" ? (
             <React.Fragment>
-              <WendlerTable week={week1} number="1" />
-              <WendlerTable week={week2} number="2" />
-              <WendlerTable week={week3} number="3" />
-              <WendlerTable week={week4} number="4" />
+              <WendlerTable
+                week={week1}
+                number="1"
+                strengthProfile={strengthProfile}
+              />
+              <WendlerTable
+                week={week2}
+                number="2"
+                strengthProfile={strengthProfile}
+              />
+              <WendlerTable
+                week={week3}
+                number="3"
+                strengthProfile={strengthProfile}
+              />
+              <WendlerTable
+                week={week4}
+                number="4"
+                strengthProfile={strengthProfile}
+              />
             </React.Fragment>
           ) : null}
         </Form>

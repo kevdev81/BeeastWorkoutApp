@@ -3,6 +3,7 @@ import Table from "react-bootstrap/Table";
 
 class BBB extends React.Component {
   render() {
+    const strengthProfile = this.props.strengthProfile;
     return (
       <Table responsive striped bordered hover variant="dark">
         <thead className="tableHeaderContainer">
@@ -16,25 +17,25 @@ class BBB extends React.Component {
         <tbody>
           <tr>
             <td>Bench</td>
-            <td>135</td>
+            <td>{strengthProfile.benchMax}</td>
             <td>5</td>
             <td>10</td>
           </tr>
           <tr>
             <td>Deadlift</td>
-            <td>135</td>
+            <td>{strengthProfile.deadliftMax}</td>
             <td>5</td>
             <td>10</td>
           </tr>
           <tr>
             <td>Squat</td>
-            <td>135</td>
+            <td>{strengthProfile.squatMax}</td>
             <td>5</td>
             <td>10</td>
           </tr>
           <tr>
             <td>Shoulder Press</td>
-            <td>135</td>
+            <td>{strengthProfile.shoulderPressMax}</td>
             <td>5</td>
             <td>10</td>
           </tr>

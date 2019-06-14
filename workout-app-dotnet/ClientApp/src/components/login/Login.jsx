@@ -1,5 +1,6 @@
 import React from "react";
 import { handleLoginUser } from "./loginService";
+import { connect } from "react-redux";
 import LoginForm from "./LoginForm";
 
 class Login extends React.Component {
@@ -30,6 +31,7 @@ class Login extends React.Component {
   onGetSuccess = data => {
     console.log(data);
     localStorage.setItem("currentUser", data.id);
+    this.props.setUserInfo(data);
     if (data.hasProfile) {
       this.props.history.push("/home");
     } else {
@@ -54,4 +56,13 @@ class Login extends React.Component {
   }
 }
 
-export default Login;
+const mapDispatchToProps = dispatch => {
+  return {
+    setUserInfo: userInfo => dispatch({ type: "SET_USER_INFO", userInfo })
+  };
+};
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(Login);

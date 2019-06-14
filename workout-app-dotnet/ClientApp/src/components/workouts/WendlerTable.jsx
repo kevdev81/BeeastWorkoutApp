@@ -3,6 +3,7 @@ import Table from "react-bootstrap/Table";
 
 class WendlerTable extends React.Component {
   render() {
+    const strengthProfile = this.props.strengthProfile;
     return (
       <Table responsive striped bordered hover variant="dark">
         <thead className="tableHeaderContainer">
@@ -27,35 +28,35 @@ class WendlerTable extends React.Component {
         <tbody>
           <tr>
             <td>Set 1</td>
-            <td>135</td>
+            <td>{strengthProfile.benchMax}</td>
             <td>{this.props.week[0]}</td>
-            <td>135</td>
+            <td>{strengthProfile.squatMax}</td>
             <td>{this.props.week[0]}</td>
-            <td>135</td>
+            <td>{strengthProfile.deadliftMax}</td>
             <td>{this.props.week[0]}</td>
-            <td>135</td>
+            <td>{strengthProfile.shoulderPressMax}</td>
             <td>{this.props.week[0]}</td>
           </tr>
           <tr>
             <td>Set 2</td>
-            <td>135</td>
+            <td>{strengthProfile.benchMax}</td>
             <td>{this.props.week[1]}</td>
-            <td>135</td>
+            <td>{strengthProfile.squatMax}</td>
             <td>{this.props.week[1]}</td>
-            <td>135</td>
+            <td>{strengthProfile.deadliftMax}</td>
             <td>{this.props.week[1]}</td>
-            <td>135</td>
+            <td>{strengthProfile.shoulderPressMax}</td>
             <td>{this.props.week[1]}</td>
           </tr>
           <tr>
             <td>Set 3</td>
-            <td>135</td>
+            <td>{strengthProfile.benchMax}</td>
             <td>{this.props.week[2]}</td>
-            <td>135</td>
+            <td>{strengthProfile.squatMax}</td>
             <td>{this.props.week[2]}</td>
-            <td>135</td>
+            <td>{strengthProfile.deadliftMax}</td>
             <td>{this.props.week[2]}</td>
-            <td>135</td>
+            <td>{strengthProfile.shoulderPressMax}</td>
             <td>{this.props.week[2]}</td>
           </tr>
         </tbody>

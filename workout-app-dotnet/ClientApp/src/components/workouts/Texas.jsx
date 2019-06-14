@@ -3,6 +3,7 @@ import Table from "react-bootstrap/Table";
 
 class Texas extends React.Component {
   render() {
+    const strengthProfile = this.props.strengthProfile;
     return (
       <Table responsive striped bordered hover variant="dark">
         <thead className="tableHeaderContainer">
@@ -22,38 +23,38 @@ class Texas extends React.Component {
         <tbody>
           <tr>
             <td>Bench</td>
-            <td>135</td>
+            <td>{strengthProfile.benchMax}</td>
             <td colSpan="2">5 sets x 5 reps</td>
-            <td>135</td>
+            <td>{strengthProfile.benchMax}</td>
             <td colSpan="2">3 sets x 5 reps</td>
-            <td>135</td>
+            <td>{strengthProfile.benchMax}</td>
             <td colSpan="2">1 set x 5 reps</td>
           </tr>
           <tr>
             <td>Shoulder Press</td>
-            <td>135</td>
+            <td>{strengthProfile.shoulderPressMax}</td>
             <td colSpan="2">5 sets x 5 reps</td>
-            <td>135</td>
+            <td>{strengthProfile.shoulderPressMax}</td>
             <td colSpan="2">3 sets x 5 reps</td>
-            <td>135</td>
+            <td>{strengthProfile.shoulderPressMax}</td>
             <td colSpan="2">1 set x 5 reps</td>
           </tr>
           <tr>
             <td>Squat</td>
-            <td>135</td>
+            <td>{strengthProfile.squatMax}</td>
             <td colSpan="2">5 sets x 5 reps</td>
-            <td>135</td>
+            <td>{strengthProfile.squatMax}</td>
             <td colSpan="2">2 sets x 5 reps</td>
-            <td>135</td>
+            <td>{strengthProfile.squatMax}</td>
             <td colSpan="2">1 set x 5 reps</td>
           </tr>
           <tr>
             <td>Deadlift</td>
-            <td>135</td>
+            <td>{strengthProfile.deadliftMax}</td>
             <td colSpan="2">5 sets x 5 reps</td>
-            <td>135</td>
+            <td>{strengthProfile.deadliftMax}</td>
             <td colSpan="2">2 sets x 5 reps</td>
-            <td>135</td>
+            <td>{strengthProfile.deadliftMax}</td>
             <td colSpan="2">1 set x 5 reps</td>
           </tr>
         </tbody>
