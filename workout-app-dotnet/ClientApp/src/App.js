@@ -1,19 +1,17 @@
 import React, { Suspense, lazy } from "react";
 import { Route, Switch, withRouter } from "react-router-dom";
 import PageLoaderV2 from "./components/pageLoader/PageLoaderV2";
-import WorkoutHome from "./components/workouts/WorkoutHome";
 import "./app.css";
 
 const LoginDisplay = lazy(() => import("./components/login/LoginDisplay"));
 const RegisterDisplay = lazy(() =>
   import("./components/register/RegisterDisplay")
 );
-// const Home = lazy(() => import("./components/home/Home"));
 const StrengthProfileDisplay = lazy(() =>
   import("./components/strengthProfile/StrengthProfileDisplay")
 );
 const Home = lazy(() => import("./components/home/Home"));
-// const WorkoutHome = lazy(() => import("./components/workouts/WorkoutHome"));
+const WorkoutHome = lazy(() => import("./components/workouts/WorkoutHome"));
 const ErrorComponent = lazy(() => import("./components/error/ErrorComponent"));
 
 class App extends React.Component {
