@@ -15,16 +15,16 @@ namespace workoutApp.Services.LoginRegister
         {
             CurrentUser currentUser = new CurrentUser();
             {
-                LoginUserModel loginUserModel = Get(req.Email);
-                bool validPassword = BCrypt.Net.BCrypt.Verify(req.Password, loginUserModel.Password);
+                LoginUserModel userInfo = Get(req.Email);
+                bool validPassword = BCrypt.Net.BCrypt.Verify(req.Password, userInfo.Password);
 
                 if (validPassword)
                 {
-                    currentUser.Id = loginUserModel.Id;
-                    currentUser.FirstName = loginUserModel.FirstName;
-                    currentUser.LastName = loginUserModel.LastName;
-                    currentUser.Email = loginUserModel.Email;
-                    currentUser.HasProfile = loginUserModel.HasProfile;
+                    currentUser.Id = userInfo.Id;
+                    currentUser.FirstName = userInfo.FirstName;
+                    currentUser.LastName = userInfo.LastName;
+                    currentUser.Email = userInfo.Email;
+                    currentUser.HasProfile = userInfo.HasProfile;
                 }
             }
             return currentUser;

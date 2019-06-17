@@ -23,38 +23,57 @@ class Texas extends React.Component {
         <tbody>
           <tr>
             <td>Bench</td>
-            <td>{strengthProfile.benchMax}</td>
+            <td>{Math.round((`${strengthProfile.benchMax}` * 0.9) / 5) * 5}</td>
             <td colSpan="2">5 sets x 5 reps</td>
-            <td>{strengthProfile.benchMax}</td>
+            <td>{Math.round((`${strengthProfile.benchMax}` * 0.9) / 5) * 5}</td>
             <td colSpan="2">3 sets x 5 reps</td>
-            <td>{strengthProfile.benchMax}</td>
+            <td>
+              {Math.round((`${strengthProfile.benchMax}` * 0.95) / 5) * 5}
+            </td>
             <td colSpan="2">1 set x 5 reps</td>
           </tr>
           <tr>
             <td>Shoulder Press</td>
-            <td>{strengthProfile.shoulderPressMax}</td>
+            <td>
+              {Math.round((`${strengthProfile.shoulderPressMax}` * 0.9) / 5) *
+                5}
+            </td>
             <td colSpan="2">5 sets x 5 reps</td>
-            <td>{strengthProfile.shoulderPressMax}</td>
+            <td>
+              {Math.round((`${strengthProfile.shoulderPressMax}` * 0.9) / 5) *
+                5}
+            </td>
             <td colSpan="2">3 sets x 5 reps</td>
-            <td>{strengthProfile.shoulderPressMax}</td>
+            <td>
+              {Math.round((`${strengthProfile.shoulderPressMax}` * 0.95) / 5) *
+                5}
+            </td>
             <td colSpan="2">1 set x 5 reps</td>
           </tr>
           <tr>
             <td>Squat</td>
-            <td>{strengthProfile.squatMax}</td>
+            <td>{Math.round((`${strengthProfile.squatMax}` * 0.9) / 5) * 5}</td>
             <td colSpan="2">5 sets x 5 reps</td>
-            <td>{strengthProfile.squatMax}</td>
+            <td>{Math.round((`${strengthProfile.squatMax}` * 0.8) / 5) * 5}</td>
             <td colSpan="2">2 sets x 5 reps</td>
-            <td>{strengthProfile.squatMax}</td>
+            <td>
+              {Math.round((`${strengthProfile.squatMax}` * 0.95) / 5) * 5}
+            </td>
             <td colSpan="2">1 set x 5 reps</td>
           </tr>
           <tr>
             <td>Deadlift</td>
-            <td>{strengthProfile.deadliftMax}</td>
+            <td>
+              {Math.round((`${strengthProfile.deadliftMax}` * 0.9) / 5) * 5}
+            </td>
             <td colSpan="2">5 sets x 5 reps</td>
-            <td>{strengthProfile.deadliftMax}</td>
+            <td>
+              {Math.round((`${strengthProfile.deadliftMax}` * 0.8) / 5) * 5}
+            </td>
             <td colSpan="2">2 sets x 5 reps</td>
-            <td>{strengthProfile.deadliftMax}</td>
+            <td>
+              {Math.round((`${strengthProfile.deadliftMax}` * 0.95) / 5) * 5}
+            </td>
             <td colSpan="2">1 set x 5 reps</td>
           </tr>
         </tbody>
