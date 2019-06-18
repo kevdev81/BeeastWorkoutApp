@@ -6,7 +6,10 @@ class UserDisplay extends React.Component {
     return (
       <Card bg="dark" className="outer">
         <Card.Header>
-          {this.props.firstName} {this.props.lastName}
+          {"Hello, " +
+            `${this.props.firstName}` +
+            ` ${this.props.lastName}` +
+            "!"}
         </Card.Header>
         <Card.Title>{this.props.email}</Card.Title>
         <Card.Img

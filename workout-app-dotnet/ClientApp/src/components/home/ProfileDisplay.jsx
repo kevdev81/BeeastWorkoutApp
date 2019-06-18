@@ -1,31 +1,61 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
 
 class ProfileDisplay extends React.Component {
   render() {
     return (
       <Card bg="dark" className="outer">
-        <Card.Title>Compound Lift Maximums</Card.Title>
+        <Card.Title className="title">Compound Lift Maximums</Card.Title>
         <Card.Body>
-          <div>
-            <div>Bench Max:</div>
-            {this.props.benchMax}
-            <hr />
+          <div className="profDisp1">
+            <div className="maxTitle">Bench Max:</div>
+            <div className="maxNum">{this.props.benchMax}</div>
+            <Form className="update">
+              <Form.Group>
+                <Form.Control min="0" className="updateInput" type="number" />
+                <Button className="updateBtn" variant="warning">
+                  Update
+                </Button>
+              </Form.Group>
+            </Form>
           </div>
-          <div>
-            <div>Deadlift Max:</div>
-            {this.props.deadliftMax}
-            <hr />
+          <div className="profDisp2">
+            <div className="maxTitle">Squat Max:</div>
+            <div className="maxNum">{this.props.squatMax}</div>
+            <Form className="update">
+              <Form.Group>
+                <Form.Control min="0" className="updateInput" type="number" />
+                <Button className="updateBtn" variant="warning">
+                  Update
+                </Button>
+              </Form.Group>
+            </Form>
           </div>
-          <div>
-            <div>Squat Max:</div>
-            {this.props.squatMax}
-            <hr />
+          <div className="profDisp3">
+            <div className="maxTitle">Deadlift Max:</div>
+            <div className="maxNum">{this.props.deadliftMax}</div>
+            <Form className="update">
+              <Form.Group>
+                <Form.Control min="0" className="updateInput" type="number" />
+                <Button className="updateBtn" variant="warning">
+                  Update
+                </Button>
+              </Form.Group>
+            </Form>
           </div>
-          <div>
-            <div>ShoulderPress Max:</div>
-            {this.props.shoulderPressMax}
-            <hr />
+          <div className="profDisp4">
+            <div className="maxTitle">ShoulderPress Max:</div>
+            <div className="maxNum">{this.props.shoulderPressMax}</div>
+            <Form className="update">
+              <Form.Group>
+                <Form.Control min="0" className="updateInput" type="number" />
+                <Button className="updateBtn" variant="warning">
+                  Update
+                </Button>
+              </Form.Group>
+            </Form>
           </div>
         </Card.Body>
       </Card>

@@ -42,7 +42,7 @@ class NavBar extends React.Component {
               </Button>
             </Nav.Link>
           </Nav>
-          <Logout logoutUser={logoutUser} />
+          <Logout className="logout" logoutUser={logoutUser} />
         </Navbar>
       </div>
     );
