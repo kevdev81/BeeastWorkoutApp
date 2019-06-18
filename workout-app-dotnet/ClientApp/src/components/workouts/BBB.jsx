@@ -1,6 +1,8 @@
 import React from "react";
 import Form from "react-bootstrap/Form";
 import Table from "react-bootstrap/Table";
+import Card from "react-bootstrap/Card";
+import Button from "react-bootstrap/Button";
 
 class BBB extends React.Component {
   state = {
@@ -103,6 +105,17 @@ class BBB extends React.Component {
             </tbody>
           </Table>
         </Form>
+        <Card.Footer>
+          <p>
+            *Boring But Big workouts are calculated by taking a percentage of
+            the 1 rep max.
+            <br />
+            *The default percentage is 50% and can be changed above.
+          </p>
+          <Button size="sm" variant="warning">
+            Email
+          </Button>
+        </Card.Footer>
       </React.Fragment>
     );
   }

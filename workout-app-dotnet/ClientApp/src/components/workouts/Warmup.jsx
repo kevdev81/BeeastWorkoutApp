@@ -1,5 +1,7 @@
 import React from "react";
 import Form from "react-bootstrap/Form";
+import Card from "react-bootstrap/Card";
+import Button from "react-bootstrap/Button";
 import Table from "react-bootstrap/Table";
 
 class Warmup extends React.Component {
@@ -178,6 +180,23 @@ class Warmup extends React.Component {
             </tbody>
           </Table>
         </Form>
+        <Card.Footer>
+          <p>
+            *Warmup's are calculated by using a base number (90% of max) before
+            calculating sets.
+            <br />
+            Set 1 is calculated by taking 40% of the base number.
+            <br />
+            Set 2 is calculated by taking 50% of the base number.
+            <br />
+            Set 3 is calculated by taking 60% of the base number.
+            <br />
+            The base percentage can be changed above.
+          </p>
+          <Button size="sm" variant="warning">
+            Email
+          </Button>
+        </Card.Footer>
       </React.Fragment>
     );
   }

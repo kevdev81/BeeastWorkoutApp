@@ -79,3 +79,65 @@ th {
   background-color: rgba(0, 0, 0, 0.5);
   color: white;
 }
+
+div.card-footer {
+  display: flex;
+  flex-direction: row;
+}
+p {
+  color: black;
+  font-size: 0.65em !important;
+  text-align: left !important;
+  font-style: italic !important;
+  text-emphasis: bold;
+  display: block;
+  width: 95%;
+}
+div.card-footer > .btn {
+  display: block;
+  align-self: center;
+  height: 100%;
+  width: 5%;
+  margin-right: 30px;
+  height: 50px;
+}
+@media screen and (max-width: 1200px) {
+  .workoutHome {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+  }
+  .nav-item {
+    display: block;
+    flex: left;
+    width: 100%;
+    height: 100%;
+  }
+  .nav-link {
+    display: block;
+    flex: left;
+    width: 100%;
+    height: 100%;
+  }
+  div.card-footer {
+    display: flex;
+    flex-direction: column;
+  }
+  p {
+    color: black;
+    font-size: 0.65em !important;
+    text-align: left !important;
+    font-style: italic !important;
+    text-emphasis: bold;
+    display: block;
+    width: 100%;
+  }
+  div.card-footer > .btn {
+    display: block;
+    align-self: center;
+    margin-left: 10%;
+    width: 120%;
+    height: 30px;
+  }
+}

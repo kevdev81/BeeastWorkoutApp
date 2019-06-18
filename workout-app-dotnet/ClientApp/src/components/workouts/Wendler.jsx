@@ -1,5 +1,7 @@
 import React from "react";
 import Form from "react-bootstrap/Form";
+import Card from "react-bootstrap/Card";
+import Button from "react-bootstrap/Button";
 import WendlerTable from "./WendlerTable";
 
 class Wendler extends React.Component {
@@ -106,6 +108,32 @@ class Wendler extends React.Component {
             </React.Fragment>
           ) : null}
         </Form>
+        <Card.Footer>
+          <p>
+            *Wendler 5-3-1 workouts are calculated by using a base number (90%
+            of max) before calculating sets.
+            <br />
+            Week 1 sets are calculated by taking 65%, 75%, and 85% of the base
+            number, respectively.
+            <br />
+            Week 2 sets are calculated by taking 70%, 80%, and 90% of the base
+            number, respectively.
+            <br />
+            Week 3 sets are calculated by taking 75%, 85%, and 95% of the base
+            number, respectively.
+            <br />
+            Week 4 sets are calculated by taking 40%, 50%, and 60% of the base
+            number, respectively.
+            <br />
+            *The base number can not be changed for this workout.
+            <br />
+            *Warm up workout prior to Wendler's 5-3-1 workout is highly
+            recommended.
+          </p>
+          <Button size="sm" variant="warning">
+            Email
+          </Button>
+        </Card.Footer>
       </React.Fragment>
     );
   }
