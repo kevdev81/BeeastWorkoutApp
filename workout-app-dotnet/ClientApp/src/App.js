@@ -10,7 +10,7 @@ const RegisterDisplay = lazy(() =>
 const StrengthProfileDisplay = lazy(() =>
   import("./components/strengthProfile/StrengthProfileDisplay")
 );
-const Home = lazy(() => import("./components/home/Home"));
+const Home = lazy(() => import("./components/dashboard/DashboardDisplay"));
 const WorkoutHome = lazy(() => import("./components/workouts/WorkoutHome"));
 const ErrorComponent = lazy(() => import("./components/error/ErrorComponent"));
 

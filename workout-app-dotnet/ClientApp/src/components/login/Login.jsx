@@ -6,7 +6,9 @@ import LoginForm from "./LoginForm";
 class Login extends React.Component {
   state = {
     email: "",
-    password: ""
+    password: "",
+    loading: false,
+    errors: {}
   };
 
   handleInputChange = e => {
@@ -17,9 +19,28 @@ class Login extends React.Component {
     this.setState({
       [name]: value
     });
+
+    const validEmail = RegExp(
+      /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i
+    );
+    let errors = this.state.errors;
+    switch (name) {
+      case "email":
+        errors.email = validEmail.test(value) ? "" : "Email is not valid.";
+        break;
+      case "password":
+        errors.password =
+          value.length < 8 ? "Password must contain 8 characters." : "";
+        break;
+      default:
+        break;
+    }
   };
 
   loginUser = () => {
+    this.setState({
+      loading: true
+    });
     const formData = {
       email: this.state.email,
       password: this.state.password
@@ -29,7 +50,6 @@ class Login extends React.Component {
       .catch(this.onGetError);
   };
   onGetSuccess = data => {
-    console.log(data);
     localStorage.setItem("currentUser", data.id);
     this.props.setUserInfo(data);
     if (data.hasProfile) {
@@ -40,15 +60,20 @@ class Login extends React.Component {
   };
   onGetError = () => {
     alert("Incorrect Email or Password.");
+    this.setState({
+      loading: false
+    });
   };
 
   render() {
-    const { email, password } = this.state;
+    const { email, password, loading, errors } = this.state;
     const { handleInputChange, loginUser } = this;
     return (
       <LoginForm
         email={email}
         password={password}
+        loading={loading}
+        errors={errors}
         handleInputChange={handleInputChange}
         loginUser={loginUser}
       />

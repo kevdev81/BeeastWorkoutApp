@@ -1,11 +1,11 @@
 import React from "react";
 import ProfileDisplay from "./ProfileDisplay";
 import UserDisplay from "./UserDisplay";
-import { getStrengthProfileByUserId } from "./homeService";
+import { getStrengthProfileByUserId } from "./dashboardService";
 import { connect } from "react-redux";
-import "./homePage.css";
+import "./dashboard.css";
 
-class HomePage extends React.Component {
+class Dashboard extends React.Component {
   componentDidMount() {
     getStrengthProfileByUserId(localStorage.getItem("currentUser"))
       .then(data => this.onGetSuccess(data.data.item))
@@ -24,8 +24,8 @@ class HomePage extends React.Component {
       shoulderPressMax
     } = this.props.strengthProfile;
     return (
-      <div className="homePageWrapper">
-        <div className="homePageContainer">
+      <div className="dashboardWrapper">
+        <div className="dashboardContainer">
           <div className="userDisplay">
             <UserDisplay
               firstName={firstName}
@@ -49,7 +49,7 @@ class HomePage extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    userInfo: state.userInfoReducer.userInfo,
+    userInfo: state.userInfoReducer,
     strengthProfile: state.strengthProfileReducer
   };
 };
@@ -64,4 +64,4 @@ const mapDispatchToProps = dispatch => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(HomePage);
+)(Dashboard);

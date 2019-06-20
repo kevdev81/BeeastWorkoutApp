@@ -5,9 +5,9 @@
 
 div.card {
   text-align: center;
+  align-self: center;
   grid-column: 2 / 5;
   border: solid 1px black;
   padding-bottom: 5%;
   margin: 2%;
-  object-position: center;
 }

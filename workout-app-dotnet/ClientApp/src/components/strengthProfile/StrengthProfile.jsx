@@ -1,14 +1,16 @@
 import React from "react";
+import { connect } from "react-redux";
 import StrengthProfileForm from "./StrengthProfileForm";
 import { handleInsertStrengthProfile } from "./strengthProfileService";
 
 class StrengthProfile extends React.Component {
   state = {
-    weight: 0,
-    benchMax: 0,
-    deadliftMax: 0,
-    squatMax: 0,
-    shoulderPressMax: 0
+    weight: "",
+    benchMax: "",
+    deadliftMax: "",
+    squatMax: "",
+    shoulderPressMax: "",
+    loading: false
   };
 
   handleInputChange = e => {
@@ -21,7 +23,16 @@ class StrengthProfile extends React.Component {
     });
   };
 
+  componentDidMount() {
+    if (this.props.userInfo.hasProfile === true) {
+      this.props.history.push("/home");
+    }
+  }
+
   submitStrengthProfile = () => {
+    this.setState({
+      loading: true
+    });
     const formData = {
       userId: localStorage.getItem("currentUser"),
       weight: this.state.weight,
@@ -36,10 +47,24 @@ class StrengthProfile extends React.Component {
   };
   onPostSuccess = data => {
     console.log(data);
+    this.props.setHasProfile(true);
     this.props.history.push("/home");
   };
   onPostError = () => {
     console.log("error");
+    this.setState({
+      loading: false
+    });
+  };
+
+  resetForm = () => {
+    this.setState({
+      weight: "",
+      benchMax: "",
+      deadliftMax: "",
+      squatMax: "",
+      shoulderPressMax: ""
+    });
   };
 
   render() {
@@ -48,9 +73,10 @@ class StrengthProfile extends React.Component {
       benchMax,
       deadliftMax,
       squatMax,
-      shoulderPressMax
+      shoulderPressMax,
+      loading
     } = this.state;
-    const { handleInputChange, submitStrengthProfile } = this;
+    const { handleInputChange, submitStrengthProfile, resetForm } = this;
     return (
       <StrengthProfileForm
         weight={weight}
@@ -58,11 +84,28 @@ class StrengthProfile extends React.Component {
         deadliftMax={deadliftMax}
         squatMax={squatMax}
         shoulderPressMax={shoulderPressMax}
+        loading={loading}
         handleInputChange={handleInputChange}
         submitStrengthProfile={submitStrengthProfile}
+        resetForm={resetForm}
       />
     );
   }
 }
 
-export default StrengthProfile;
+const mapStateToProps = state => {
+  return {
+    userInfo: state.userInfoReducer
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    setHasProfile: bool => dispatch({ type: "SET_HAS_PROFILE", bool })
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(StrengthProfile);

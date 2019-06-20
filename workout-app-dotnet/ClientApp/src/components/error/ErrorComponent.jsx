@@ -1,6 +1,7 @@
 import React from "react";
 import NavBar from "../navBar/NavBar";
 import Card from "react-bootstrap/Card";
+import { withRouter } from "react-router-dom";
 import "./error.css";
 
 class ErrorComponent extends React.Component {
@@ -12,7 +13,12 @@ class ErrorComponent extends React.Component {
           <Card bg="dark" text="light" className="outer">
             <h1>ERROR 404</h1>
             <hr />
-            <h3>This page does not exist.</h3>
+            {this.props.location.pathname === "/journal" ||
+            this.props.location.pathname === "/faqs" ? (
+              <h3>This page is under construction.</h3>
+            ) : (
+              <h3>This page does not exist.</h3>
+            )}
           </Card>
         </div>
       </React.Fragment>
@@ -20,4 +26,4 @@ class ErrorComponent extends React.Component {
   }
 }
 
-export default ErrorComponent;
+export default withRouter(ErrorComponent);

@@ -5,11 +5,9 @@ import "./login.css";
 class LoginDisplay extends React.Component {
   render() {
     return (
-      <div className="loginWrapper">
-        <div className="loginContainer">
-          <div className="login">
-            <Login {...this.props} />
-          </div>
+      <div className="loginContainer">
+        <div className="login">
+          <Login {...this.props} />
         </div>
       </div>
     );

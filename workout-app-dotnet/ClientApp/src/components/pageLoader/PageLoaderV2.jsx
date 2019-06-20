@@ -9,8 +9,8 @@ class PageLoaderV2 extends React.Component {
     return (
       <div className="pageLoaderWrapper">
         <div className="pageLoader">
-          <ButtonToolbar>
-            <Button variant="dark" size="lg" disabled>
+          <ButtonToolbar className="pageLoader">
+            <Button className="pageLoader" variant="dark" size="lg" disabled>
               <Spinner
                 as="span"
                 animation="grow"

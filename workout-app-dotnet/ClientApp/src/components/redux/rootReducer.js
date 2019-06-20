@@ -1,4 +1,6 @@
 import { combineReducers } from "redux";
+import "./actions";
+import storage from "redux-persist/lib/storage";
 
 const initialStrengthProfile = [
   {
@@ -22,18 +24,58 @@ const strengthProfileReducer = (state = initialStrengthProfile, action) => {
   }
 };
 
-const userInfoReducer = (state = [], action) => {
+const initialUserInfo = [
+  {
+    id: 0,
+    firstName: "0",
+    lastName: "0",
+    email: "0",
+    hasProfile: false
+  }
+];
+const userInfoReducer = (state = initialUserInfo, action) => {
   switch (action.type) {
     case "SET_USER_INFO":
       return {
-        userInfo: action.userInfo
+        id: action.userInfo.id,
+        firstName: action.userInfo.firstName,
+        lastName: action.userInfo.lastName,
+        email: action.userInfo.email,
+        hasProfile: action.userInfo.hasProfile
+      };
+    case "SET_HAS_PROFILE":
+      return {
+        ...state,
+        hasProfile: action.bool
       };
     default:
       return state;
   }
 };
 
-export default combineReducers({
+const logoutReducer = (state = [], action) => {
+  switch (action.type) {
+    case "USER_LOGOUT":
+      return {
+        state: undefined
+      };
+    default:
+      return state;
+  }
+};
+
+const rootReducer = combineReducers({
   strengthProfileReducer,
-  userInfoReducer
+  userInfoReducer,
+  logoutReducer
 });
+
+// const rootReducer = (state, action) => {
+//   if (action.type === "USER_LOGOUT") {
+//     storage.removeItem("persist:root");
+//     state = undefined;
+//   }
+//   return appReducer(state, action);
+// };
+
+export default rootReducer;
