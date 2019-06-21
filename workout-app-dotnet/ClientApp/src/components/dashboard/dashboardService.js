@@ -25,9 +25,5 @@ export const getStrengthProfileByUserId = userId => {
       "Content-Type": "application/json"
     }
   };
-  return axios(config)
-    // .then(data => {
-    //   data.data;
-    // })
-    // .catch(error => console.log(error));
+  return axios(config);
 };

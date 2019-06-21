@@ -65,6 +65,27 @@ namespace workoutApp.Services
             return strengthProfile;
         }
 
+        //public void Update(AddressUpdateRequest address)
+        //{
+        //    _dataProvider.ExecuteNonQuery(
+        //        "dbo.Addresses_Update",
+        //        inputParamMapper: delegate (SqlParameterCollection paramCol)
+        //        {
+        //            paramCol.AddWithValue("@Id", address.Id);
+        //            paramCol.AddWithValue("@Name", address.Name);
+        //            paramCol.AddWithValue("@LineOne", address.LineOne);
+        //            paramCol.AddWithValue("@LineTwo", address.LineTwo);
+        //            paramCol.AddWithValue("@City", address.City);
+        //            paramCol.AddWithValue("@Zip", address.Zip);
+        //            paramCol.AddWithValue("@StateId", address.StateId);
+        //            paramCol.AddWithValue("@CountryId", address.CountryId);
+        //            paramCol.AddWithValue("@isBilling", address.IsBilling);
+        //            paramCol.AddWithValue("@isProduct", address.IsProduct);
+        //            paramCol.AddWithValue("@isMerchant", 0);
+        //        }
+        //    );
+        //}
+
         //public void Update(int UserId)
         //{
         //    using (SqlConnection con = new SqlConnection(connString))
