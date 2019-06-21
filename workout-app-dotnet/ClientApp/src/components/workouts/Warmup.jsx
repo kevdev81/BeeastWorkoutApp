@@ -191,7 +191,7 @@ class Warmup extends React.Component {
             <br />
             Set 3 is calculated by taking 60% of the base number.
             <br />
-            The base percentage can be changed above.
+            *The base percentage can be changed above.
           </p>
           <Button size="sm" variant="warning">
             Email
