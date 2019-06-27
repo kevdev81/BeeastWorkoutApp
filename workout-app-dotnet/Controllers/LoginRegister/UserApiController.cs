@@ -4,6 +4,7 @@ using Microsoft.Extensions.Logging;
 using System;
 using workoutApp.Controllers.Temp;
 using workoutApp.Interfaces.LoginRegister;
+using workoutApp.Interfaces.Redis;
 using workoutApp.Models.LoginRegister;
 using workoutApp.Models.LoginRegister.LoginRequest;
 using workoutApp.Models.Responses;
@@ -13,13 +14,49 @@ namespace workoutApp.Controllers.LoginRegister
     [Route("api/user")]
     public class UserApiController : BaseApiController
     {
+        private IRedisService _redisService;
         private readonly IUserService _userService;
 
-        public UserApiController(IUserService userService,
+        public UserApiController(
+            IUserService userService,
+            IRedisService redisService,
             ILogger<UserApiController> logger
             ) : base(logger)
         {
             _userService = userService;
+            _redisService = redisService;
+        }
+
+        [HttpPost("loginRedis")]
+        public ActionResult<ItemResponse<CurrentUser>> LoginRedis(LoginRequest req)
+        {
+            ItemResponse<CurrentUser> response = null;
+            ActionResult result = null;
+
+            try
+            {
+                CurrentUser currentUser = _userService.LoginCheck(req);
+
+                if (currentUser.Id > 0)
+                {
+                    string token = _redisService.SetToken(currentUser.Id);
+
+                    response = new ItemResponse<CurrentUser>();
+                    response.Token = token;
+                    response.Item = currentUser;
+                    result = Ok200(response);
+                }
+                else
+                {
+                    result = NotFound404(new ErrorResponse("User information did not match."));
+                }
+            }
+            catch (Exception ex)
+            {
+                Logger.LogError(ex.ToString());
+                result = StatusCode(500, new ErrorResponse(ex.Message.ToString()));
+            }
+            return result;
         }
 
         [HttpPost("login")]

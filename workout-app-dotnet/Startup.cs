@@ -6,7 +6,9 @@ using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using workoutApp.Interfaces;
+using workoutApp.Interfaces.Redis;
 using workoutApp.Services;
+using workoutApp.Services.Redis;
 
 namespace my_new_app
 {
@@ -31,6 +33,7 @@ namespace my_new_app
             });
 
             services.AddSingleton<IConfiguration>(Configuration);
+            services.AddSingleton<IRedisService, RedisService>();
             services.AddSingleton<IStrengthProfileService, StrengthProfileService>();
             services.AddSingleton<workoutApp.Interfaces.LoginRegister.IUserService, workoutApp.Services.LoginRegister.UserService>();
 
