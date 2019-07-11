@@ -6,7 +6,7 @@ import ActiveWorkout from "./ActiveWorkout";
 import { connect } from "react-redux";
 import "./workoutHome.css";
 
-class WorkoutHome extends React.Component {
+class WorkoutHome extends React.Component { 
   state = {
     active: "Warmup"
   };
