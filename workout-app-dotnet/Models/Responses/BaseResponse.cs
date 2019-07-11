@@ -8,6 +8,8 @@ namespace workoutApp.Models.Responses
 
         public string TransactionId { get; set; }
 
+        public string Token { get; set; }
+
         public BaseResponse()
         {
             // This Tx ID is fake and only for demo purposes.
