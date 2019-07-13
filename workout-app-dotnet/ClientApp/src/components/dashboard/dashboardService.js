@@ -6,7 +6,8 @@ export const getUserById = id => {
     url: `https://localhost:44350/api/user/${id}`,
     crossdomain: true,
     headers: {
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
+      Authorization: localStorage.getItem("currentUser")
     }
   };
   return axios(config)
