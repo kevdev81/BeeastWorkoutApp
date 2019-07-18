@@ -35,7 +35,7 @@ namespace workoutApp.Controllers.LoginRegister
 
             try
             {
-                CurrentUser currentUser = _userService.LoginCheck(req);
+                CurrentUser currentUser = _userService.LoginAuth(req);
 
                 if (currentUser.Id > 0)
                 {
@@ -67,7 +67,7 @@ namespace workoutApp.Controllers.LoginRegister
 
             try
             {
-                CurrentUser currentUser = _userService.LoginCheck(req);
+                CurrentUser currentUser = _userService.LoginAuth(req);
 
                 if (currentUser.Id > 0)
                 {
@@ -97,7 +97,7 @@ namespace workoutApp.Controllers.LoginRegister
 
             try
             {
-                int id = _userService.Insert(model);
+                int id = _userService.Register(model);
 
                 if (id > 0)
                 {

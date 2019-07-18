@@ -11,5 +11,7 @@ namespace workoutApp.Interfaces.Redis
         string Get(string Key);
 
         string SetToken(int value);
+
+        int RedisAuth(string authHeader);
     }
 }

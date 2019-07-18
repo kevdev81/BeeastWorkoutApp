@@ -2,6 +2,7 @@
 using System;
 using workoutApp.Interfaces.Redis;
 using workoutApp.Models.Redis;
+using static Microsoft.AspNetCore.Hosting.Internal.HostingApplication;
 
 namespace workoutApp.Services.Redis
 {
@@ -34,6 +35,12 @@ namespace workoutApp.Services.Redis
             db.StringSet(pair.Key, pair.Value);
 
             return pair.Key;
+        }
+
+        public int RedisAuth()
+        {
+            string authHeader = Request.Headers["Authorization"];
+
         }
     }
 }

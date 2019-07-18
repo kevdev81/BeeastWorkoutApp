@@ -11,7 +11,7 @@ namespace workoutApp.Services.LoginRegister
     {
         private static string connString = "Server=.\\SQLEXPRESS;Database=WorkoutApp;Trusted_Connection=True;";
 
-        public CurrentUser LoginCheck(LoginRequest req)
+        public CurrentUser LoginAuth(LoginRequest req)
         {
             CurrentUser currentUser = new CurrentUser();
             {
@@ -55,7 +55,7 @@ namespace workoutApp.Services.LoginRegister
             return userInfo;
         }
 
-        public int Insert(UserInsertRequestModel model)
+        public int Register(UserInsertRequestModel model)
         {
             int id = 0;
             string hashedPassword = BCrypt.Net.BCrypt.HashPassword(model.Password);

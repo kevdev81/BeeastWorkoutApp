@@ -46,12 +46,12 @@ class Login extends React.Component {
       password: this.state.password
     };
     handleLoginUser(formData)
-      .then(data => this.onGetSuccess(data.item))
+      .then(data => this.onGetSuccess(data))
       .catch(this.onGetError);
   };
   onGetSuccess = data => {
-    localStorage.setItem("currentUser", data.id);
-    this.props.setUserInfo(data);
+    localStorage.setItem("currentUser", data.token);
+    this.props.setUserInfo(data.item);
     if (data.hasProfile) {
       this.props.history.push("/home");
     } else {
