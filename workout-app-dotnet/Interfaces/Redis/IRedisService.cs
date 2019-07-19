@@ -8,10 +8,10 @@ namespace workoutApp.Interfaces.Redis
 {
     public interface IRedisService
     {
-        string Get(string Key);
+        string Get(string cookie);
 
         string SetToken(int value);
 
-        int RedisAuth(string authHeader);
+        //int CurrentUserId();
     }
 }

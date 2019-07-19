@@ -27,6 +27,37 @@ namespace workoutApp.Controllers.LoginRegister
             _redisService = redisService;
         }
 
+        //[HttpPost("tester")]
+        //public ActionResult<ItemResponse<int>> IdTest()
+        //{
+        //    ItemResponse<int> response = null;
+        //    ActionResult result = null;
+
+        //    string userIdCookie = Request.Cookies["Token"];
+
+        //    try
+        //    {
+        //        var userId = int.Parse(_redisService.Get(userIdCookie));
+                
+        //        if(userId > 0)
+        //        {
+        //            response = new ItemResponse<int>();
+        //            response.Item = userId;
+        //            result = Ok200(response);
+        //        }
+        //        else
+        //        {
+        //            result = NotFound404(new ErrorResponse("User information did not match."));
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Logger.LogError(ex.ToString());
+        //        result = StatusCode(500, new ErrorResponse(ex.Message.ToString()));
+        //    }
+        //    return result;
+        //}
+
         [HttpPost("loginRedis")]
         public ActionResult<ItemResponse<CurrentUser>> LoginRedis(LoginRequest req)
         {

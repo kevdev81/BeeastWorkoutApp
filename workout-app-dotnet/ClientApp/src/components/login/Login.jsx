@@ -50,6 +50,7 @@ class Login extends React.Component {
       .catch(this.onGetError);
   };
   onGetSuccess = data => {
+    document.cookie = `token=${data.token}`;
     localStorage.setItem("currentUser", data.token);
     this.props.setUserInfo(data.item);
     if (data.hasProfile) {
