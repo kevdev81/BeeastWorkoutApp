@@ -50,7 +50,9 @@ class Login extends React.Component {
       .catch(this.onGetError);
   };
   onGetSuccess = data => {
-    localStorage.setItem("currentUser", data.token);
+    localStorage.setItem("currentUser", data.item.id);
+    ///Redis
+    // localStorage.setItem("currentUser", data.token);
     this.props.setUserInfo(data.item);
     if (data.hasProfile) {
       this.props.history.push("/home");

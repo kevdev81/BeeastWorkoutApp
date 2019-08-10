@@ -6,14 +6,6 @@ import { connect } from "react-redux";
 import "./dashboard.css";
 
 class Dashboard extends React.Component {
-  componentDidMount() {
-    getStrengthProfileByUserId(localStorage.getItem("currentUser"))
-      .then(data => this.onGetSuccess(data.data.item))
-      .catch(this.onGetError);
-  }
-  onGetSuccess = data => {
-    this.props.setStrengthProfile(data);
-  };
   // componentDidMount() {
   //   getStrengthProfileByUserId(localStorage.getItem("currentUser"))
   //     .then(data => this.onGetSuccess(data.data.item))
@@ -22,6 +14,14 @@ class Dashboard extends React.Component {
   // onGetSuccess = data => {
   //   this.props.setStrengthProfile(data);
   // };
+  componentDidMount() {
+    getStrengthProfileByUserId(localStorage.getItem("currentUser"))
+      .then(data => this.onGetSuccess(data.data.item))
+      .catch(this.onGetError);
+  }
+  onGetSuccess = data => {
+    this.props.setStrengthProfile(data);
+  };
 
   render() {
     const { firstName, lastName, email } = this.props.userInfo;
