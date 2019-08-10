@@ -32,23 +32,21 @@ class Dashboard extends React.Component {
       shoulderPressMax
     } = this.props.strengthProfile;
     return (
-      <div className="dashboardWrapper">
-        <div className="dashboardContainer">
-          <div className="userDisplay">
-            <UserDisplay
-              firstName={firstName}
-              lastName={lastName}
-              email={email}
-            />
-          </div>
-          <div className="profileDisplay">
-            <ProfileDisplay
-              benchMax={benchMax}
-              deadliftMax={deadliftMax}
-              squatMax={squatMax}
-              shoulderPressMax={shoulderPressMax}
-            />
-          </div>
+      <div className="dashboardContainer">
+        <div className="userContainer">
+          <UserDisplay
+            firstName={firstName}
+            lastName={lastName}
+            email={email}
+          />
+        </div>
+        <div className="profileContainer">
+          <ProfileDisplay
+            benchMax={benchMax}
+            deadliftMax={deadliftMax}
+            squatMax={squatMax}
+            shoulderPressMax={shoulderPressMax}
+          />
         </div>
       </div>
     );

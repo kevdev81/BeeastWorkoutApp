@@ -4,7 +4,7 @@ import Card from "react-bootstrap/Card";
 import NavBar from "../navBar/NavBar";
 import ActiveWorkout from "./ActiveWorkout";
 import { connect } from "react-redux";
-import "./workoutHome.css";
+// import "./workoutHome.css";
 
 class WorkoutHome extends React.Component { 
   state = {
@@ -24,14 +24,13 @@ class WorkoutHome extends React.Component {
     } = this.props.strengthProfile;
     return (
       <React.Fragment>
-        <NavBar />
         <div className="workout">
           <Card className="workoutHome outer" bg="dark" text="white">
             <h1>Workouts</h1>
             <hr />
             <Card bg="dark" className="workoutNavContainer">
               <Nav
-                variant="pills"
+                // variant="pills"
                 defaultActiveKey="Warmup"
                 onSelect={selectedKey =>
                   this.setActiveWorkout(`${selectedKey}`)
