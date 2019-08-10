@@ -10,18 +10,18 @@ namespace workoutApp.Services.Redis
     {
         private ConnectionMultiplexer redisCon = ConnectionMultiplexer.Connect("localhost");
 
-        public string Get(string key)
-        {
-            IDatabase db = redisCon.GetDatabase();
+        //public string Get(string key)
+        //{
+        //    IDatabase db = redisCon.GetDatabase();
 
-            RedisKeyValue pair = new RedisKeyValue();
+        //    RedisKeyValue pair = new RedisKeyValue();
 
-            string val = db.StringGet(key);
-            pair.Key = key;
-            pair.Value = val;
+        //    string val = db.StringGet(key);
+        //    pair.Key = key;
+        //    pair.Value = val;
 
-            return pair.Value;
-        }
+        //    return pair.Value;
+        //}
 
         public string SetToken(int value)
         {
@@ -37,10 +37,16 @@ namespace workoutApp.Services.Redis
             return pair.Key;
         }
 
-        public int RedisAuth()
+        public string Get(string cookie)
         {
-            string authHeader = Request.Headers["Authorization"];
+            IDatabase db = redisCon.GetDatabase();
 
+            RedisKeyValue pair = new RedisKeyValue();
+
+            string val = db.StringGet(cookie);
+            pair.Value = val;
+
+            return pair.Value;
         }
     }
 }
