@@ -17,7 +17,6 @@ import axios from "axios";
 //       console.log(error);
 //     });
 // }
-<<<<<<< HEAD
 
 export function handleLoginUser(formData) {
   const config = {
@@ -35,5 +34,3 @@ export function handleLoginUser(formData) {
       console.log(error);
     });
 }
-=======
->>>>>>> 8cb0f75536010714b5cf8f61fcb703e49124c8d9
