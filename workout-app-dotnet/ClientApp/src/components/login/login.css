@@ -1,21 +1,19 @@
 .loginContainer {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(auto-fill, 150px);
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1;
+  padding-top: 3em;
 }
 .login {
   border: solid 3px #007bff;
   border-radius: 13px;
-  grid-column-start: 2;
-  grid-column-end: 5;
-  grid-row-start: 2;
-  grid-row-end: 3;
-  height: 100%;
+  grid-column: 2/3;
+  grid-row: 1;
+  margin: auto;
 }
-@media screen and (min-width: 1024px) {
+@media screen and (max-width: 1024px) {
   .login {
-    margin-left: 15%;
-    margin-right: 15%;
+    grid-column: 1/4;
   }
 }
 

@@ -1,18 +1,27 @@
 .registerContainer {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(auto-fill, 75px);
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1;
+  padding-top: 3em;
 }
 
 .register {
   border: solid 3px #007bff;
   border-radius: 13px;
-  height: 100%;
-  grid-column-start: 2;
-  grid-column-end: 5;
-  grid-row-start: 2;
-  grid-row-end: 4;
+  width: 100%;
+  grid-column: 2/3;
+  grid-row: 1;
   background-color: white !important;
+  margin: auto;
+}
+
+@media screen and (max-width: 1024px) {
+  .registerContainer {
+    padding-top: 3em;
+  }
+  .register {
+    grid-column: 1/4;
+  }
 }
 
 h1 {
