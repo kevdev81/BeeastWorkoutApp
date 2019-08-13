@@ -34,7 +34,7 @@ class Warmup extends React.Component {
               <option value="0.75">75%</option>
               <option value="0.8">80%</option>
               <option value="0.85">85%</option>
-              <option value="0.9" selected>
+              <option value="0.9">
                 Default (90%)
               </option>
               <option value="0.95">95%</option>

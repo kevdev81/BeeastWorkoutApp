@@ -1,119 +1,184 @@
-.gridContainer {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: auto;
-  grid-gap: 1em;
-  padding-top: 2.5em;
-  padding-left: 5em;
-  padding-right: 5em;
-}
-
-.logoutButton {
-  grid-column: 3;
-  grid-row: 1/2;
-  z-index: 9999;
-  position: relative !important;
-}
-.logout {
-  right: 0 !important;
-  position: absolute !important;
-}
-
-.dashboardGrid {
-  grid-row: 1/2;
-  grid-column: 1/6;
-  margin: 0;
-}
-.dashboardContainer {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: 1;
-  grid-gap: 1em;
-  max-width: 100%;
-}
-.userContainer {
-  grid-column: 1/3;
-  grid-row: 1;
-  max-width: 100%;
-}
-.profileContainer {
-  grid-column: 3/6;
-  grid-row: 1;
-  max-width: 100%;
-}
-.profDisplayContainer {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  grid-gap: 1em;
-  margin: 0;
-  /* width: 100%;
-  height: 100%; */
-}
 .profDisp1 {
   width: 100%;
   height: 100%;
   margin: auto;
-  grid-column: 1/2;
-  grid-row: 1/2;
   border: white 2px solid;
   border-radius: 5px;
   padding: 1em;
   background: black;
+  overflow: hidden;
 }
 .profDisp2 {
   width: 100%;
   height: 100%;
   margin: auto;
-  grid-column: 2/3;
-  grid-row: 1/2;
   border: white 2px solid;
   border-radius: 5px;
   padding: 1em;
   background: black;
+  overflow: hidden;
 }
 .profDisp3 {
   width: 100%;
   height: 100%;
   margin: auto;
-  grid-column: 1/2;
-  grid-row: 2;
   border: white 2px solid;
   border-radius: 5px;
   padding: 1em;
   background: black;
+  overflow: hidden;
 }
 .profDisp4 {
   width: 100%;
   height: 100%;
   margin: auto;
-  grid-column: 2/3;
-  grid-row: 2;
   border: white 2px solid;
   border-radius: 5px;
   padding: 1em;
   background: black;
-}
-.dispContent {
-  margin: auto;
-  height: 100%;
-  width: 100%;
-}
-.maxNum {
-  font-size: 1.75em;
-  text-align: center;
+  overflow: hidden;
 }
 ::-webkit-input-placeholder {
   text-align: center;
 }
-
-.workoutGrid {
-  grid-row: 2/3;
-  grid-column: 1/6;
-  height: 100%;
-  width: 100%;
-}
-
 div.card-footer > p {
   color: black;
+}
+
+.maxNum {
+  font-size: 1.75em;
+  text-align: center;
+}
+
+.greeting {
+  font-size: 1.2em;
+}
+.userName,
+.userEmail {
+  text-align: center;
+  font-size: 2em;
+}
+.userPicture {
+  width: 75%;
+  height: 75%;
+  margin: auto;
+}
+.logoutButton {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 1em;
+}
+
+@media screen and (min-width: 1024px) {
+  .gridContainer {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: auto;
+    grid-gap: 1em;
+    padding-top: 2.5em;
+    padding-left: 5em;
+    padding-right: 5em;
+  }
+
+  .dashboardGrid {
+    grid-row: 1/2;
+    grid-column: 1/6;
+    margin: 0;
+  }
+  .dashboardContainer {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 1;
+    grid-gap: 1em;
+    max-width: 100%;
+  }
+  .userContainer {
+    grid-column: 1/3;
+    grid-row: 1;
+    max-width: 100%;
+  }
+  .profileContainer {
+    grid-column: 3/6;
+    grid-row: 1;
+    max-width: 100%;
+  }
+  .profDisplayContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-gap: 1em;
+    margin: 0;
+  }
+  .profDisp1 {
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    grid-column: 1/2;
+    grid-row: 1/2;
+    border: white 2px solid;
+    border-radius: 5px;
+    padding: 1em;
+    background: black;
+  }
+  .profDisp2 {
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    grid-column: 2/3;
+    grid-row: 1/2;
+    border: white 2px solid;
+    border-radius: 5px;
+    padding: 1em;
+    background: black;
+  }
+  .profDisp3 {
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    grid-column: 1/2;
+    grid-row: 2;
+    border: white 2px solid;
+    border-radius: 5px;
+    padding: 1em;
+    background: black;
+  }
+  .profDisp4 {
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    grid-column: 2/3;
+    grid-row: 2;
+    border: white 2px solid;
+    border-radius: 5px;
+    padding: 1em;
+    background: black;
+  }
+  .dispContent {
+    margin: auto;
+    height: 100%;
+    width: 100%;
+  }
+
+  .workoutGrid {
+    grid-row: 2/3;
+    grid-column: 1/6;
+    height: 100%;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .userContainer {
+    margin-bottom: 1em;
+  }
+  .profDisplayContainer,
+  .workoutGrid,
+  .profDisp1,
+  .profDisp2,
+  .profDisp3,
+  .profDisp4 {
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
 }

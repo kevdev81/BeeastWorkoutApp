@@ -17,9 +17,9 @@ class DashboardDisplay extends React.Component {
     return (
       <div className="gridContainer">
         {/* <NavBar /> */}
-        <div className="logoutButton">
+        {/* <div className="logoutButton">
           <Logout className="logout" logoutUser={logoutUser} />
-        </div>
+        </div> */}
         <div className="dashboardGrid">
           <Dashboard />
         </div>
