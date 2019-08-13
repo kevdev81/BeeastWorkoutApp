@@ -1,5 +1,4 @@
 import React from "react";
-import NavBar from "../navBar/NavBar";
 import Card from "react-bootstrap/Card";
 import { withRouter } from "react-router-dom";
 import "./error.css";
@@ -8,7 +7,6 @@ class ErrorComponent extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <NavBar />
         <div className="error">
           <Card bg="dark" text="light" className="outer">
             <h1>ERROR 404</h1>

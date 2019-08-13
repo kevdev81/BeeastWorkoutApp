@@ -70,6 +70,14 @@ div.card-footer > p {
   padding: 1em;
 }
 
+.workoutNavContainer {
+  padding: 0.15em;
+  padding-left: 0.5em;
+}
+.workoutMain {
+  padding-top: 0.25em;
+}
+
 @media screen and (min-width: 1024px) {
   .gridContainer {
     display: grid;

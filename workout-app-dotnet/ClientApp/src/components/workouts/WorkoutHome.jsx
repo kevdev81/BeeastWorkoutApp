@@ -1,12 +1,10 @@
 import React from "react";
 import Nav from "react-bootstrap/Nav";
 import Card from "react-bootstrap/Card";
-import NavBar from "../navBar/NavBar";
 import ActiveWorkout from "./ActiveWorkout";
 import { connect } from "react-redux";
-// import "./workoutHome.css";
 
-class WorkoutHome extends React.Component { 
+class WorkoutHome extends React.Component {
   state = {
     active: "Warmup"
   };
@@ -30,7 +28,7 @@ class WorkoutHome extends React.Component {
             <hr />
             <Card bg="dark" className="workoutNavContainer">
               <Nav
-                // variant="pills"
+                variant="pills"
                 defaultActiveKey="Warmup"
                 onSelect={selectedKey =>
                   this.setActiveWorkout(`${selectedKey}`)

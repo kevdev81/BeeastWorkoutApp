@@ -1,10 +1,8 @@
 import React from "react";
-import NavBar from "../navBar/NavBar";
 import Dashboard from "./Dashboard";
 import WorkoutHome from "../workouts/WorkoutHome";
 import storage from "redux-persist/lib/storage";
 import { connect } from "react-redux";
-import Logout from "../navBar/Logout";
 
 class DashboardDisplay extends React.Component {
   logoutUser = () => {
@@ -13,13 +11,8 @@ class DashboardDisplay extends React.Component {
     this.props.userLogout;
   };
   render() {
-    const { logoutUser } = this;
     return (
       <div className="gridContainer">
-        {/* <NavBar /> */}
-        {/* <div className="logoutButton">
-          <Logout className="logout" logoutUser={logoutUser} />
-        </div> */}
         <div className="dashboardGrid">
           <Dashboard />
         </div>
