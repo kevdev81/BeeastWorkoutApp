@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace workoutApp.Models.StrengthProfile.StrengthProfile
+namespace workoutApp.Models.StrengthProfile
 {
-    public class StrengthProfile
+    public class StrengthProfileModel
     {
         public int Id { get; set; }
         public int UserId { get; set; }

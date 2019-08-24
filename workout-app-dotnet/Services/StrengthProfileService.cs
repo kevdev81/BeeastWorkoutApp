@@ -3,7 +3,6 @@ using System.Data;
 using System.Data.SqlClient;
 using workoutApp.Interfaces;
 using workoutApp.Models.StrengthProfile;
-using workoutApp.Models.StrengthProfile.StrengthProfile;
 
 namespace workoutApp.Services
 {
@@ -37,9 +36,9 @@ namespace workoutApp.Services
             return id;
         }
 
-        public StrengthProfile GetByUserId(int userId)
+        public StrengthProfileModel GetByUserId(int userId)
         {
-            StrengthProfile strengthProfile = new StrengthProfile();
+            StrengthProfileModel strengthProfile = new StrengthProfileModel();
             using (SqlConnection con = new SqlConnection(connString))
             {
                 SqlCommand cmd = new SqlCommand("dbo.StrengthProfile_SelectByUserId", con);
