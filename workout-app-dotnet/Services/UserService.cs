@@ -68,9 +68,9 @@ namespace workoutApp.Services
                 SqlParameter outputParam = cmd.Parameters.Add("@Id", SqlDbType.Int);
                 outputParam.Direction = ParameterDirection.Output;
 
-                cmd.Parameters.AddWithValue("@Email", model.Email);
                 cmd.Parameters.AddWithValue("@FirstName", model.FirstName);
                 cmd.Parameters.AddWithValue("@LastName", model.LastName);
+                cmd.Parameters.AddWithValue("@Email", model.Email);
                 cmd.Parameters.AddWithValue("@Password", hashedPassword);
 
                 con.Open();

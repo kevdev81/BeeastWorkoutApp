@@ -5,7 +5,6 @@ using System;
 using workoutApp.Controllers.Temp;
 using workoutApp.Interfaces;
 using workoutApp.Interfaces.Redis;
-using workoutApp.Models.LoginRegister;
 using workoutApp.Models.Responses;
 using workoutApp.Models.User;
 
@@ -123,7 +122,6 @@ namespace workoutApp.Controllers.LoginRegister
         [AllowAnonymous]
         public ActionResult<ItemResponse<int>> Insert(UserInsertRequestModel model)
         {
-            ItemResponse<int> response = null;
             ActionResult result = null;
 
             try
@@ -132,7 +130,7 @@ namespace workoutApp.Controllers.LoginRegister
 
                 if (id > 0)
                 {
-                    response = new ItemResponse<int>();
+                    ItemResponse<int> response = new ItemResponse<int>();
                     response.Item = id;
 
                     result = Created201(response);
