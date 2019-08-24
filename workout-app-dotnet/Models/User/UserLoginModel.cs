@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using workoutApp.Models.User;
+﻿using workoutApp.Models.User;
 
 namespace workoutApp.Models.LoginRegister
 {

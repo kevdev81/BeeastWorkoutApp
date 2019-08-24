@@ -21,11 +21,6 @@ namespace workoutApp.Services
                 if (validPassword)
                 {
                     currentUser = userInfo;
-                    //currentUser.Id = userInfo.Id;
-                    //currentUser.FirstName = userInfo.FirstName;
-                    //currentUser.LastName = userInfo.LastName;
-                    //currentUser.Email = userInfo.Email;
-                    //currentUser.HasProfile = userInfo.HasProfile;
                 }
             }
             return currentUser;
