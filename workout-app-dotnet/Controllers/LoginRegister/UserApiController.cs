@@ -3,11 +3,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
 using workoutApp.Controllers.Temp;
-using workoutApp.Interfaces.LoginRegister;
+using workoutApp.Interfaces;
 using workoutApp.Interfaces.Redis;
 using workoutApp.Models.LoginRegister;
-using workoutApp.Models.LoginRegister.LoginRequest;
 using workoutApp.Models.Responses;
+using workoutApp.Models.User;
 
 namespace workoutApp.Controllers.LoginRegister
 {
@@ -38,7 +38,7 @@ namespace workoutApp.Controllers.LoginRegister
         //    try
         //    {
         //        var userId = int.Parse(_redisService.Get(userIdCookie));
-                
+
         //        if(userId > 0)
         //        {
         //            response = new ItemResponse<int>();
@@ -59,20 +59,20 @@ namespace workoutApp.Controllers.LoginRegister
         //}
 
         [HttpPost("loginRedis")]
-        public ActionResult<ItemResponse<CurrentUser>> LoginRedis(LoginRequest req)
+        public ActionResult<ItemResponse<UserModel>> LoginRedis(UserLoginRequestModel req)
         {
-            ItemResponse<CurrentUser> response = null;
+            ItemResponse<UserModel> response = null;
             ActionResult result = null;
 
             try
             {
-                CurrentUser currentUser = _userService.LoginAuth(req);
+                UserModel currentUser = _userService.Login(req);
 
                 if (currentUser.Id > 0)
                 {
                     string token = _redisService.SetToken(currentUser.Id);
 
-                    response = new ItemResponse<CurrentUser>();
+                    response = new ItemResponse<UserModel>();
                     response.Token = token;
                     response.Item = currentUser;
                     result = Ok200(response);
@@ -91,18 +91,18 @@ namespace workoutApp.Controllers.LoginRegister
         }
 
         [HttpPost("login")]
-        public ActionResult<ItemResponse<CurrentUser>> Login(LoginRequest req)
+        public ActionResult<ItemResponse<UserModel>> Login(UserLoginRequestModel req)
         {
-            ItemResponse<CurrentUser> response = null;
+            ItemResponse<UserModel> response = null;
             ActionResult result = null;
 
             try
             {
-                CurrentUser currentUser = _userService.LoginAuth(req);
+                UserModel currentUser = _userService.Login(req);
 
                 if (currentUser.Id > 0)
                 {
-                    response = new ItemResponse<CurrentUser>();
+                    response = new ItemResponse<UserModel>();
                     response.Item = currentUser;
                     result = Ok200(response);
                 }

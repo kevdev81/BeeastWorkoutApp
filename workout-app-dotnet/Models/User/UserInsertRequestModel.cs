@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace workoutApp.Models.LoginRegister
+namespace workoutApp.Models.User
 {
     public class UserInsertRequestModel
     {

@@ -35,7 +35,7 @@ namespace my_new_app
             services.AddSingleton<IConfiguration>(Configuration);
             services.AddSingleton<IRedisService, RedisService>();
             services.AddSingleton<IStrengthProfileService, StrengthProfileService>();
-            services.AddSingleton<workoutApp.Interfaces.LoginRegister.IUserService, workoutApp.Services.LoginRegister.UserService>();
+            services.AddSingleton<IUserService, UserService>();
 
         }
 
