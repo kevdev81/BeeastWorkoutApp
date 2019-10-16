@@ -2,7 +2,7 @@ import React from "react";
 import "./homeDashboard.css";
 import ProfileDisplay from "../dashboard/ProfileDisplay";
 import UserDisplay from "../dashboard/UserDisplay";
-import WorkoutHome from "../workouts/WorkoutHome";
+import WorkoutHome from "../workoutDisplay/WorkoutHome";
 import SideBar from "../sidebar/SideBar";
 
 class HomeDashboard extends React.Component {

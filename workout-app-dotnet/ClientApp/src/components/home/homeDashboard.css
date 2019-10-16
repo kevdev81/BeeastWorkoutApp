@@ -1,21 +1,40 @@
 .dashboardContainer {
   padding: 5%;
 }
-.sidebar {
-  padding: 2%;
-  height: 500px;
-  border-right: double black 3px;
+@media screen and (max-width: 400px) {
+  .sidebar {
+    border-bottom: double black 3px;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+  }
+}
+/* @media screen and (min-width: 760px) {
+  .sidebar {
+    min-height: 500px;
+    height: 100%;
+    border-right: double black 3px;
+  }
+} */
+@media screen and (min-width: 801px) {
+  .sidebar {
+    min-height: 500px;
+    height: 100%;
+    border-right: double black 3px;
+  }
 }
 .dashboardContainer {
 }
 .componentWrapper {
-  padding: 2%;
+  padding-left: 5%;
+  padding-right: 5%;
+  height: 100%;
 }
-.userDisplay,
+.userDisplay {
+  width: 25%;
+  height: 25%;
+}
 .profileDisplay {
-  width: 40%;
-  height: 40%;
-  margin: auto;
+  color: white;
 }
 .workoutDisplay {
   width: 100%;
