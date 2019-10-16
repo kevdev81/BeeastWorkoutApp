@@ -3,6 +3,7 @@ import Nav from "react-bootstrap/Nav";
 import Card from "react-bootstrap/Card";
 import ActiveWorkout from "./ActiveWorkout";
 import { connect } from "react-redux";
+import "./workoutHome.css";
 
 class WorkoutHome extends React.Component {
   state = {

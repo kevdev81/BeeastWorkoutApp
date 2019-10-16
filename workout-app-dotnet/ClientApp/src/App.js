@@ -1,7 +1,8 @@
 import React, { Suspense, lazy } from "react";
 import { Route, Switch, withRouter } from "react-router-dom";
 import PageLoaderV2 from "./components/pageLoader/PageLoaderV2";
-import "./app.css";
+// import "./app.css";
+import HomeDashboard from "./components/home/HomeDashboard";
 
 const LoginDisplay = lazy(() => import("./components/login/LoginDisplay"));
 const RegisterDisplay = lazy(() =>
@@ -38,6 +39,11 @@ class App extends React.Component {
               render={props => <RegisterDisplay {...props} />}
             />
             <Route path="/home" exact render={props => <Home {...props} />} />
+            <Route
+              path="/homeDashboard"
+              exact
+              render={props => <HomeDashboard {...props} />}
+            />
             <Route
               path="/strengthProfile"
               exact

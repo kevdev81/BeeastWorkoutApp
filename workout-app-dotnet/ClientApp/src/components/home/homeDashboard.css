@@ -1,0 +1,24 @@
+.dashboardContainer {
+  padding: 5%;
+}
+.sidebar {
+  padding: 2%;
+  height: 500px;
+  border-right: double black 3px;
+}
+.dashboardContainer {
+}
+.componentWrapper {
+  padding: 2%;
+}
+.userDisplay,
+.profileDisplay {
+  width: 40%;
+  height: 40%;
+  margin: auto;
+}
+.workoutDisplay {
+  width: 100%;
+  height: 100%;
+  margin: auto;
+}
